@@ -1,5 +1,6 @@
 import Navbar from "../components/navbar";
 import SearchBar from "../components/SearchBar";
+import Footer from "../components/footer";
 
 
 function Home(){
@@ -17,9 +18,9 @@ function Home(){
      
      <SearchBar/>
       </div>
-
-    
      </section>
+  
+
 
     <section className="categories">
       <div className="category-card">
@@ -45,12 +46,11 @@ function Home(){
        <div className="category-card">
         <img src="/images/CarRental.webp" alt="rental" />
         <p>Car Rentals</p>
-      </div>
-
-       
-      
-
+      </div> 
     </section>
+
+
+      <Footer />
      
     </div>
   );

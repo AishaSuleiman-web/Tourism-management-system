@@ -144,6 +144,7 @@ body {
   list-style: none;
   position: absolute;
   right: 300px;
+  color: #43474F;
 }
 
 .nav-buttons{
@@ -165,6 +166,7 @@ body {
   margin-left: 50px;
   font: 28px serif;
   color: #001E40;
+  font-weight: bold;
   
 }
 
@@ -246,4 +248,34 @@ color: white;
 .categories img{
   width: 50px;
   height: 50px;
+}
+
+.footer {
+  background-color: #0E1F32;
+  color: white;
+  padding: 60px 80px;
+}
+
+.footer-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footer-section h2{
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.footer-link{
+ font-size: 14px;
+ cursor: pointer;
+ color: white;
+ text-decoration: none;  
 }
