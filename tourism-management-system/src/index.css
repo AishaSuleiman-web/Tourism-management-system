@@ -135,16 +135,18 @@ body {
   z-index: 1000;
   background: white;
   
-  
+}
+
+.links{
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  right: 300px; 
 }
 
 .nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  position: absolute;
-  right: 300px;
-  color: #43474F;
+  text-decoration: none;
+  color: #43474F; 
 }
 
 .nav-buttons{
