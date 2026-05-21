@@ -116,6 +116,16 @@ code {
   box-sizing: border-box;
 }
 
+.app{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content{
+  flex: 1;
+}
+
 body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
@@ -256,6 +266,7 @@ color: white;
   background-color: #0E1F32;
   color: white;
   padding: 60px 80px;
+  bottom: 0px;
 }
 
 .footer-container{
@@ -281,3 +292,30 @@ color: white;
  color: white;
  text-decoration: none;  
 }
+
+.error-page{
+  text-align: center;
+  position: relative;
+}
+
+.text{
+  max-width: 24px;
+  position: absolute;
+  left: 49%; 
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+
+}
+
+.home-button{
+  background-color: #001E40;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  position: absolute;
+  top: 380px;
+  right: 600px;
+}
+

@@ -6,7 +6,6 @@ import Footer from "../components/footer";
 function Home(){
   return (
     <div>
-     <Navbar />
 
     <section className="hero">
 
@@ -50,7 +49,7 @@ function Home(){
     </section>
 
 
-      <Footer />
+      
      
     </div>
   );

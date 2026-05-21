@@ -22,8 +22,8 @@ function Footer (){
         </div>
 
         <div className="footer-section">
-          <Link to= "/404-page" className="footer-link">Terms of Service</Link>
-          <Link to= "/404-page"  className="footer-link">Privacy Policy</Link>
+          <Link to= "/NotFound" className="footer-link">Terms of Service</Link>
+          <Link to= "/NotFound"  className="footer-link">Privacy Policy</Link>
         </div>
 
         <div className="footer-section">
