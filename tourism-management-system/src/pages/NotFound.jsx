@@ -7,7 +7,7 @@ function NotFound(){
       <h1>404</h1>
       <p>Page Not Found</p>
       <p className="text">The page you are looking for doesn't exist or has been moved</p>
-      <Link to= "/">
+      <Link to= "/" className="button-container">
       <button className="home-button">Return Home</button>
       </Link>
       

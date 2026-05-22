@@ -298,6 +298,7 @@ color: white;
 .error-page{
   text-align: center;
   position: relative;
+
 }
 
 .text{
@@ -352,5 +353,39 @@ color: white;
 
 .top-head{
   text-align: center;
+}
+
+.contact{
+  
+  max-width: 650px;
+  margin: 0px auto;
+  padding: 80px 20px;
+  font-family: Plus Jakarta Sans, sans-serif;
+  color: #43474F;
+  
+}
+
+.form-head{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+   font-size: 16px;
+  color: #001E40;
+  margin-bottom: 16px;
+
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+
+.contact-button{
+  background-color: #001E40;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 10px;
+  color: white;
 }
 

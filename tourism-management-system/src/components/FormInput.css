@@ -1,0 +1,35 @@
+.form-group{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+}
+
+.form{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 48px;
+  background-color: #F7F9FB;
+}
+
+.form-label{
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-input{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  background-color: #F2F4F6;
+  font-size: 16px ;
+}
+
+.textarea{
+  min-height: 150px;
+  resize: none;
+   font-family: sans-serif;
+}
