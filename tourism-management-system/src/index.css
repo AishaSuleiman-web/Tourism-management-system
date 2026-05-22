@@ -144,6 +144,7 @@ body {
   width: 100%;
   z-index: 1000;
   background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   
 }
 
@@ -157,6 +158,7 @@ body {
 .nav-links {
   text-decoration: none;
   color: #43474F; 
+  font-weight: bold;
 }
 
 .nav-buttons{
@@ -317,5 +319,38 @@ color: white;
   position: absolute;
   top: 380px;
   right: 600px;
+}
+
+.about{
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  font-family: Plus Jakarta Sans, sans-serif;
+  color: #43474F;
+  
+}
+
+.head{
+  font-size: 16px;
+  color: #001E40;
+  margin-bottom: 16px;
+}
+
+.body{
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.section{
+  margin-top: 40px;
+  border: 1px solid rgba(8, 8, 8, 0.1);
+  border-radius: 10px;
+  padding: 48px;
+  margin-bottom: 70px;
+}
+
+.top-head{
+  text-align: center;
 }
 
