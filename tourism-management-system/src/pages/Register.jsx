@@ -7,10 +7,9 @@ function Register() {
   const [errors, setErrors] = useState({})
   const [loading, setLoading] = useState(false)
   const [serverMessage, setServerMessage] = useState('')
-  const [messageType, setMessageType] = useState('') // 'success' or 'error'
+  const [messageType, setMessageType] = useState('')
   const navigate = useNavigate()
 
-  // Auto-dismiss message after 5 seconds
   useEffect(() => {
     if (serverMessage) {
       const timer = setTimeout(() => {
@@ -77,7 +76,6 @@ function Register() {
       setTimeout(() => navigate('/login'), 5000)
     } else {
       setMessageType('error')
-      // Handle rate limit error specifically
       if (result.error && result.error.toLowerCase().includes('rate limit')) {
         setServerMessage('Too many registration attempts. Please wait a few minutes before trying again.')
       } else {
@@ -87,78 +85,89 @@ function Register() {
     setLoading(false)
   }
 
-  // Message styles
-  const messageStyles = {
-    success: {
-      backgroundColor: '#D1FAE5',
-      color: '#065F46',
-      borderLeft: '4px solid #10B981'
-    },
-    error: {
-      backgroundColor: '#FEE2E2',
-      color: '#DC2626',
-      borderLeft: '4px solid #EF4444'
-    }
+  const getInputClass = (fieldName) => {
+    if (errors[fieldName]) return 'form-input form-input-error'
+    if (formData[fieldName] && !errors[fieldName] && fieldName === 'confirmPassword') return 'form-input form-input-success'
+    return 'form-input'
   }
 
-  const currentMessageStyle = messageType === 'success' ? messageStyles.success : messageStyles.error
-
   return (
-    <div style={{ maxWidth: '500px', margin: '50px auto', padding: '30px', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Create Account</h2>
-      
-      {serverMessage && (
-        <div style={{ 
-          ...currentMessageStyle, 
-          padding: '12px', 
-          borderRadius: '8px', 
-          marginBottom: '20px', 
-          textAlign: 'center',
-          animation: 'fadeOut 5s forwards'
-        }}>
-          {serverMessage}
-        </div>
-      )}
-      
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '15px' }}>
-          <label>Full Name</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} style={{ width: '100%', padding: '10px', marginTop: '5px', border: `1px solid ${errors.name ? '#DC2626' : '#D1D5DB'}`, borderRadius: '8px' }} />
-          {errors.name && <p style={{ color: '#DC2626', fontSize: '12px', marginTop: '5px' }}>{errors.name}</p>}
-        </div>
+    <div className="register-container">
+      <div className="register-card">
+        <h2 className="register-title">Create Account</h2>
+        
+        {serverMessage && (
+          <div className={`register-message register-message-${messageType}`}>
+            {serverMessage}
+          </div>
+        )}
+        
+        <form className="register-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Full Name</label>
+            <input 
+              type="text" 
+              name="name" 
+              value={formData.name} 
+              onChange={handleChange} 
+              className={getInputClass('name')}
+            />
+            {errors.name && <p className="error-text">{errors.name}</p>}
+          </div>
 
-        <div style={{ marginBottom: '15px' }}>
-          <label>Email</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} style={{ width: '100%', padding: '10px', marginTop: '5px', border: `1px solid ${errors.email ? '#DC2626' : '#D1D5DB'}`, borderRadius: '8px' }} />
-          {errors.email && <p style={{ color: '#DC2626', fontSize: '12px', marginTop: '5px' }}>{errors.email}</p>}
-        </div>
+          <div className="form-group">
+            <label className="form-label">Email</label>
+            <input 
+              type="email" 
+              name="email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              className={getInputClass('email')}
+            />
+            {errors.email && <p className="error-text">{errors.email}</p>}
+          </div>
 
-        <div style={{ marginBottom: '15px' }}>
-          <label>Password</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} style={{ width: '100%', padding: '10px', marginTop: '5px', border: `1px solid ${errors.password ? '#DC2626' : '#D1D5DB'}`, borderRadius: '8px' }} />
-          {errors.password && <p style={{ color: '#DC2626', fontSize: '12px', marginTop: '5px' }}>{errors.password}</p>}
-        </div>
+          <div className="form-group">
+            <label className="form-label">Password</label>
+            <input 
+              type="password" 
+              name="password" 
+              value={formData.password} 
+              onChange={handleChange} 
+              className={getInputClass('password')}
+            />
+            {errors.password && <p className="error-text">{errors.password}</p>}
+          </div>
 
-        <div style={{ marginBottom: '15px' }}>
-          <label>Confirm Password</label>
-          <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} style={{ width: '100%', padding: '10px', marginTop: '5px', border: `1px solid ${errors.confirmPassword ? '#DC2626' : (formData.confirmPassword && !errors.confirmPassword ? '#10B981' : '#D1D5DB')}`, borderRadius: '8px' }} />
-          {errors.confirmPassword ? <p style={{ color: '#DC2626', fontSize: '12px', marginTop: '5px' }}>{errors.confirmPassword}</p> : formData.confirmPassword && !errors.confirmPassword && <p style={{ color: '#10B981', fontSize: '12px', marginTop: '5px' }}>✓ Passwords match</p>}
-        </div>
+          <div className="form-group">
+            <label className="form-label">Confirm Password</label>
+            <input 
+              type="password" 
+              name="confirmPassword" 
+              value={formData.confirmPassword} 
+              onChange={handleChange} 
+              className={getInputClass('confirmPassword')}
+            />
+            {errors.confirmPassword ? (
+              <p className="error-text">{errors.confirmPassword}</p>
+            ) : formData.confirmPassword && !errors.confirmPassword ? (
+              <p className="success-text">✓ Passwords match</p>
+            ) : null}
+          </div>
 
-        <button type="submit" disabled={loading} style={{ width: '100%', padding: '12px', backgroundColor: loading ? '#9CA3AF' : '#3B82F6', color: 'white', border: 'none', borderRadius: '8px', cursor: loading ? 'not-allowed' : 'pointer' }}>
-          {loading ? 'Creating Account...' : 'Register'}
-        </button>
-      </form>
+          <button 
+            type="submit" 
+            className="register-btn" 
+            disabled={loading}
+          >
+            {loading ? 'Creating Account...' : 'Register'}
+          </button>
+        </form>
 
-      <p style={{ textAlign: 'center', marginTop: '20px' }}>Already have an account? <a href="/login">Login</a></p>
-      
-      <style>{`
-        @keyframes fadeOut {
-          0% { opacity: 1; }
-          70% { opacity: 1; }
-          100% { opacity: 0; visibility: hidden; }
-        }
-      `}</style>
+        <p className="register-footer">
+          Already have an account? <a href="/login">Login</a>
+        </p>
+      </div>
     </div>
   )
 }

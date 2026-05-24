@@ -64,54 +64,103 @@ function Login() {
     setLoading(false)
   }
 
+  const getInputClass = (hasError) => {
+    return hasError ? 'login-input login-input-error' : 'login-input'
+  }
+
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', padding: '30px', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-      {!showForgot ? (
-        <>
-          <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Welcome Back</h2>
-          {serverError && <div style={{ backgroundColor: '#FEE2E2', color: '#DC2626', padding: '12px', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>{serverError}</div>}
-          
-          <form onSubmit={handleLogin}>
-            <div style={{ marginBottom: '15px' }}>
-              <label>Email</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: '100%', padding: '10px', marginTop: '5px', border: `1px solid ${errors.email ? '#DC2626' : '#D1D5DB'}`, borderRadius: '8px' }} />
-              {errors.email && <p style={{ color: '#DC2626', fontSize: '12px', marginTop: '5px' }}>{errors.email}</p>}
-            </div>
+    <div className="login-container">
+      <div className="login-card">
+        {!showForgot ? (
+          <>
+            <h2 className="login-title">Welcome Back</h2>
+            {serverError && <div className="login-error">{serverError}</div>}
+            
+            <form className="login-form" onSubmit={handleLogin}>
+              <div className="login-form-group">
+                <label className="login-label">Email</label>
+                <input 
+                  type="email" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)} 
+                  className={getInputClass(errors.email)}
+                />
+                {errors.email && <p className="login-error-text">{errors.email}</p>}
+              </div>
 
-            <div style={{ marginBottom: '15px' }}>
-              <label>Password</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: '100%', padding: '10px', marginTop: '5px', border: `1px solid ${errors.password ? '#DC2626' : '#D1D5DB'}`, borderRadius: '8px' }} />
-              {errors.password && <p style={{ color: '#DC2626', fontSize: '12px', marginTop: '5px' }}>{errors.password}</p>}
-            </div>
+              <div className="login-form-group">
+                <label className="login-label">Password</label>
+                <input 
+                  type="password" 
+                  value={password} 
+                  onChange={(e) => setPassword(e.target.value)} 
+                  className={getInputClass(errors.password)}
+                />
+                {errors.password && <p className="login-error-text">{errors.password}</p>}
+              </div>
 
-            <button type="submit" disabled={loading} style={{ width: '100%', padding: '12px', backgroundColor: loading ? '#9CA3AF' : '#3B82F6', color: 'white', border: 'none', borderRadius: '8px', cursor: loading ? 'not-allowed' : 'pointer' }}>
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
-          </form>
+              <button 
+                type="submit" 
+                className="login-btn" 
+                disabled={loading}
+              >
+                {loading ? 'Logging in...' : 'Login'}
+              </button>
+            </form>
 
-          <p style={{ textAlign: 'center', marginTop: '15px' }}><button onClick={() => setShowForgot(true)} style={{ background: 'none', border: 'none', color: '#3B82F6', cursor: 'pointer' }}>Forgot Password?</button></p>
-          <p style={{ textAlign: 'center', marginTop: '10px' }}>Don't have an account? <a href="/register">Register</a></p>
-        </>
-      ) : (
-        <>
-          <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Reset Password</h2>
-          {resetMessage && <div style={{ backgroundColor: resetMessage.includes('sent') ? '#D1FAE5' : '#FEE2E2', color: resetMessage.includes('sent') ? '#065F46' : '#DC2626', padding: '12px', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>{resetMessage}</div>}
-          
-          <form onSubmit={handleForgotPassword}>
-            <div style={{ marginBottom: '15px' }}>
-              <label>Email Address</label>
-              <input type="email" value={resetEmail} onChange={(e) => setResetEmail(e.target.value)} style={{ width: '100%', padding: '10px', marginTop: '5px', border: `1px solid ${errors.resetEmail ? '#DC2626' : '#D1D5DB'}`, borderRadius: '8px' }} />
-              {errors.resetEmail && <p style={{ color: '#DC2626', fontSize: '12px', marginTop: '5px' }}>{errors.resetEmail}</p>}
-            </div>
+            <p className="login-footer">
+              <button 
+                onClick={() => setShowForgot(true)} 
+                className="login-forgot-btn"
+              >
+                Forgot Password?
+              </button>
+            </p>
+            <p className="login-footer">
+              Don't have an account? <a href="/register">Register</a>
+            </p>
+          </>
+        ) : (
+          <>
+            <h2 className="forgot-password-title">Reset Password</h2>
+            {resetMessage && (
+              <div className={resetMessage.includes('sent') ? 'login-success' : 'login-error'}>
+                {resetMessage}
+              </div>
+            )}
+            
+            <form className="login-form" onSubmit={handleForgotPassword}>
+              <div className="login-form-group">
+                <label className="login-label">Email Address</label>
+                <input 
+                  type="email" 
+                  value={resetEmail} 
+                  onChange={(e) => setResetEmail(e.target.value)} 
+                  className={getInputClass(errors.resetEmail)}
+                />
+                {errors.resetEmail && <p className="login-error-text">{errors.resetEmail}</p>}
+              </div>
 
-            <button type="submit" disabled={loading} style={{ width: '100%', padding: '12px', backgroundColor: loading ? '#9CA3AF' : '#3B82F6', color: 'white', border: 'none', borderRadius: '8px', cursor: loading ? 'not-allowed' : 'pointer' }}>
-              {loading ? 'Sending...' : 'Send Reset Email'}
-            </button>
-          </form>
+              <button 
+                type="submit" 
+                className="login-btn" 
+                disabled={loading}
+              >
+                {loading ? 'Sending...' : 'Send Reset Email'}
+              </button>
+            </form>
 
-          <p style={{ textAlign: 'center', marginTop: '15px' }}><button onClick={() => setShowForgot(false)} style={{ background: 'none', border: 'none', color: '#3B82F6', cursor: 'pointer' }}>Back to Login</button></p>
-        </>
-      )}
+            <p className="login-footer">
+              <button 
+                onClick={() => setShowForgot(false)} 
+                className="back-to-login-btn"
+              >
+                Back to Login
+              </button>
+            </p>
+          </>
+        )}
+      </div>
     </div>
   )
 }
