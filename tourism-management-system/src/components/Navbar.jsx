@@ -16,14 +16,13 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-       
+        
         <div className="logo">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
             TourEase
           </Link>
         </div>
 
-        
         <div className="nav-links">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/hotels">Hotels</NavLink>
@@ -31,11 +30,16 @@ function Navbar() {
           <NavLink to="/tours">Tour Guides</NavLink>
         </div>
 
-        
         <div className="auth-buttons">
           {isAuthenticated ? (
             <>
               <NavLink to="/my-bookings">My Bookings</NavLink>
+             
+              <div className="profile-btn-container">
+                <button className="profile-btn">
+                  {user?.name || 'Profile'}
+                </button>
+              </div>
               <button className="logout-btn" onClick={handleLogout}>
                 Logout
               </button>
@@ -52,7 +56,6 @@ function Navbar() {
           )}
         </div>
 
-        
         <button 
           className="mobile-menu-btn"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -61,7 +64,6 @@ function Navbar() {
         </button>
       </nav>
 
-      
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink>
         <NavLink to="/hotels" onClick={() => setIsMobileMenuOpen(false)}>Hotels</NavLink>
@@ -73,6 +75,10 @@ function Navbar() {
         {isAuthenticated ? (
           <>
             <NavLink to="/my-bookings" onClick={() => setIsMobileMenuOpen(false)}>My Bookings</NavLink>
+            
+            <div className="mobile-profile-name">
+              {user?.name || 'Profile'}
+            </div>
             <button 
               className="logout-btn" 
               onClick={handleLogout}

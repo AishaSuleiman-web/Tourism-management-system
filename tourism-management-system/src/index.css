@@ -372,6 +372,34 @@ code {
   }
 }
 
+.profile-btn-container {
+  display: inline-block;
+}
+
+.profile-btn {
+  padding: 8px 20px;
+  background-color: transparent;
+  border: 1px solid #7d5800;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profile-btn:hover {
+  background-color: #7d5800;
+  color: white;
+}
+
+.mobile-profile-name {
+  padding: 10px 0;
+  color: #7d5800;
+  font-weight: 500;
+  border-bottom: 1px solid #333;
+  margin-bottom: 8px;
+}
+
 /* footer styles */
 
 .footer {
