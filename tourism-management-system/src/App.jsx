@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -8,6 +8,10 @@ import Dashboard from './pages/Dashboard'
 import Hotels from './pages/Hotels'
 import HotelDetails from './pages/HotelDetails'
 import MyBookings from './pages/MyBookings'
+import Home from "./pages/Home";
+import About from "./pages/About"
+import NotFound from "./pages/NotFound";
+import Contact from "./pages/contact"
 
 function App() {
   return (
@@ -21,13 +25,16 @@ function App() {
           <Navbar />
           <main style={{ flex: 1 }}>
             <Routes>
-              <Route path="/" element={<Navigate to="/hotels" />} />
+              <Route path="/" element={<Home />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/hotels" element={<Hotels />} />
               <Route path="/hotels/:id" element={<HotelDetails />} />
               <Route path="/my-bookings" element={<MyBookings />} />
+              <Route path="/about" element={<About />} />
+         <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

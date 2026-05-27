@@ -1,113 +1,14 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* ========================================
+   ORIGINAL STYLES FROM YOUR BRANCH
+   ======================================== */
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
+*{
   margin: 0;
-}
-
-#root {
-  width: 100%;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-}
-
-/*nav bar styles*/
-/* Base Navbar Styles */
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -132,7 +33,6 @@ code {
   color: white;
 }
 
-/* Desktop Navigation Links */
 .nav-links {
   display: flex;
   gap: 32px;
@@ -157,14 +57,12 @@ code {
   padding-bottom: 4px;
 }
 
-/* auth button for desktop responsiveness */
 .auth-buttons {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-/* button for signup style */
 .auth-buttons a button {
   padding: 8px 20px;
   background-color: #7d5800;
@@ -180,7 +78,6 @@ code {
   background-color: #5c4200;
 }
 
-/* button for login styles */
 .auth-buttons a:last-child button {
   padding: 8px 20px;
   background-color: transparent;
@@ -197,7 +94,6 @@ code {
   color: black;
 }
 
-/* button for logout styles */
 .logout-btn {
   padding: 8px 20px;
   background-color: #dc2626;
@@ -213,7 +109,6 @@ code {
   background-color: #b91c1c;
 }
 
-/* hamburger mobile button styles */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -223,7 +118,6 @@ code {
   cursor: pointer;
 }
 
-/* dropdown menu for phone */
 .mobile-menu {
   display: none;
   position: fixed;
@@ -313,6 +207,34 @@ code {
   background-color: #b91c1c;
 }
 
+.profile-btn-container {
+  display: inline-block;
+}
+
+.profile-btn {
+  padding: 8px 20px;
+  background-color: transparent;
+  border: 1px solid #7d5800;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profile-btn:hover {
+  background-color: #7d5800;
+  color: white;
+}
+
+.mobile-profile-name {
+  padding: 10px 0;
+  color: #7d5800;
+  font-weight: 500;
+  border-bottom: 1px solid #333;
+  margin-bottom: 8px;
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
   .navbar {
@@ -324,7 +246,6 @@ code {
   }
 }
 
-/* mobile hamburger style */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -339,7 +260,6 @@ code {
   }
 }
 
-/* Small Phones */
 @media (max-width: 480px) {
   .navbar {
     padding: 12px 16px;
@@ -372,36 +292,7 @@ code {
   }
 }
 
-.profile-btn-container {
-  display: inline-block;
-}
-
-.profile-btn {
-  padding: 8px 20px;
-  background-color: transparent;
-  border: 1px solid #7d5800;
-  border-radius: 30px;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.profile-btn:hover {
-  background-color: #7d5800;
-  color: white;
-}
-
-.mobile-profile-name {
-  padding: 10px 0;
-  color: #7d5800;
-  font-weight: 500;
-  border-bottom: 1px solid #333;
-  margin-bottom: 8px;
-}
-
-/* footer styles */
-
+/* Footer Styles */
 .footer {
   width: 100%;
   background-color: black;
@@ -474,7 +365,6 @@ code {
   color: #7d5800;
 }
 
-/* Tablet and Mobile */
 @media (max-width: 768px) {
   .footer {
     padding: 40px 20px 20px 20px;
@@ -498,7 +388,6 @@ code {
   }
 }
 
-/* Small Phones */
 @media (max-width: 480px) {
   .footer {
     padding: 30px 16px 16px 16px;
@@ -521,142 +410,7 @@ code {
   }
 }
 
-/* Hotel card styling*/
-
-.hotel-card {
-  display: flex;
-  background-color: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
-}
-
-.hotel-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-}
-
-.hotel-card-image {
-  width: 280px;
-  height: 200px;
-  flex-shrink: 0;
-}
-
-.hotel-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hotel-card-content {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.hotel-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.hotel-card-header h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
-  color: #050b36;
-}
-
-.hotel-rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.hotel-rating-stars {
-  color: #7d5800;
-}
-
-.hotel-rating-value {
-  font-size: 14px;
-  color: #666;
-}
-
-.hotel-location {
-  color: #666;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 14px;
-}
-
-.hotel-description {
-  color: #4b5563;
-  margin-bottom: 12px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.hotel-amenities {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.hotel-amenity {
-  background-color: #f3f4f6;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  color: #4b5563;
-}
-
-.hotel-price-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.hotel-price {
-  font-size: 24px;
-  font-weight: bold;
-  color: #050b36;
-}
-
-.hotel-price small {
-  font-size: 14px;
-  font-weight: normal;
-  color: #666;
-}
-
-.book-now-btn {
-  padding: 8px 24px;
-  background-color: #7d5800;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.book-now-btn:hover {
-  background-color: #5c4200;
-}
-
+/* Hotel Card Styles */
 .hotel-card {
   display: flex;
   background-color: white;
@@ -798,7 +552,6 @@ code {
   background-color: #5c4200;
 }
 
-/* Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
   .hotel-card-image {
     width: 220px;
@@ -814,7 +567,6 @@ code {
   }
 }
 
-/* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
   .hotel-card {
     flex-direction: column;
@@ -825,17 +577,8 @@ code {
     height: 200px;
     border-radius: 16px 16px 0 0;
   }
-  
-  .hotel-card-header h3 {
-    font-size: 18px;
-  }
-  
-  .hotel-price {
-    font-size: 20px;
-  }
 }
 
-/* Small Phones (max-width: 480px) */
 @media (max-width: 480px) {
   .hotel-card-image {
     height: 160px;
@@ -859,25 +602,14 @@ code {
     width: 100%;
     text-align: center;
   }
-  
-  .hotel-description {
-    font-size: 12px;
-  }
-  
-  .hotel-amenity {
-    font-size: 10px;
-    padding: 3px 8px;
-  }
 }
 
-/* Hotel page design */
-
+/* Hotels Page Styles */
 .hotels-container {
   width: 100%;
   background-color: #f8f9ff;
 }
 
-/* Hero Section */
 .hotels-hero {
   width: 100%;
   min-height: 500px;
@@ -930,7 +662,6 @@ code {
   text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* Search Form */
 .search-form {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
@@ -997,7 +728,6 @@ code {
   padding: 8px;
 }
 
-/* Price Filter Panel */
 .price-filter-panel {
   border-top: 1px solid #e0e0e0;
   padding-top: 15px;
@@ -1040,7 +770,6 @@ code {
   color: #666;
 }
 
-/* Results Info */
 .results-info {
   max-width: 1200px;
   margin: 40px auto 0;
@@ -1053,7 +782,6 @@ code {
   color: #666;
 }
 
-/* Hotels Grid Section */
 .hotels-grid-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -1091,7 +819,6 @@ code {
   cursor: pointer;
 }
 
-/* Loading State */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -1121,7 +848,6 @@ code {
   color: #666;
 }
 
-/* Error State */
 .error-container {
   text-align: center;
   padding: 60px;
@@ -1145,7 +871,6 @@ code {
   cursor: pointer;
 }
 
-/* Tablet */
 @media (max-width: 1024px) {
   .hotels-hero-title {
     font-size: 36px;
@@ -1157,7 +882,6 @@ code {
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .hotels-hero {
     padding: 40px 16px;
@@ -1191,7 +915,6 @@ code {
   }
 }
 
-/* Small Phones */
 @media (max-width: 480px) {
   .hotels-hero-title {
     font-size: 24px;
@@ -1227,6 +950,7 @@ code {
   }
 }
 
+/* Bookings Page Styles */
 .bookings-container {
   width: 100%;
   background-color: #f8f9ff;
@@ -1241,7 +965,6 @@ code {
   box-sizing: border-box;
 }
 
-/* Header */
 .bookings-header {
   margin-bottom: 48px;
 }
@@ -1258,7 +981,6 @@ code {
   color: #46464e;
 }
 
-/* Error Message */
 .bookings-error {
   background-color: #ffdad6;
   color: #ba1a1a;
@@ -1267,7 +989,6 @@ code {
   margin-bottom: 24px;
 }
 
-/* Empty State */
 .empty-state-container {
   display: flex;
   flex-direction: column;
@@ -1323,14 +1044,12 @@ code {
   background-color: #1b224b;
 }
 
-/* Bookings Grid */
 .bookings-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 32px;
 }
 
-/* Booking Card */
 .booking-card {
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(16px);
@@ -1354,7 +1073,6 @@ code {
   flex-wrap: wrap;
 }
 
-/* Booking Image */
 .booking-image {
   width: 200px;
   min-height: 200px;
@@ -1391,7 +1109,6 @@ code {
   color: #101841;
 }
 
-/* Booking Content */
 .booking-content {
   flex: 1;
   padding: 20px;
@@ -1443,7 +1160,6 @@ code {
   color: #7d5800;
 }
 
-/* Booking Meta */
 .booking-meta {
   display: flex;
   align-items: center;
@@ -1476,7 +1192,6 @@ code {
   color: #050b36;
 }
 
-/* Booking Price */
 .booking-price {
   margin-top: 20px;
   text-align: right;
@@ -1494,7 +1209,6 @@ code {
   color: #76767f;
 }
 
-/* Loading State */
 .bookings-loading {
   display: flex;
   justify-content: center;
@@ -1512,12 +1226,6 @@ code {
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Tablet */
 @media (max-width: 1024px) {
   .bookings-main {
     padding: 80px 30px 100px 30px;
@@ -1529,7 +1237,6 @@ code {
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .bookings-main {
     padding: 80px 20px 80px 20px;
@@ -1555,17 +1262,6 @@ code {
   .booking-image {
     width: 100%;
     height: 180px;
-  }
-  
-  .booking-image img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .booking-dates {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
   }
   
   .booking-meta {
@@ -1595,7 +1291,6 @@ code {
   }
 }
 
-/* Small Phones */
 @media (max-width: 480px) {
   .bookings-main {
     padding: 70px 16px 60px 16px;
@@ -1606,10 +1301,6 @@ code {
   }
   
   .booking-image {
-    height: 150px;
-  }
-  
-  .booking-image img {
     height: 150px;
   }
   
@@ -1649,6 +1340,7 @@ code {
   }
 }
 
+/* Register Page Styles */
 .register-container {
   display: flex;
   justify-content: center;
@@ -1679,7 +1371,6 @@ code {
   color: #050b36;
 }
 
-/* Message Styles */
 .register-message {
   padding: 12px;
   border-radius: 8px;
@@ -1706,7 +1397,6 @@ code {
   100% { opacity: 0; visibility: hidden; }
 }
 
-/* Form Styles */
 .register-form {
   width: 100%;
 }
@@ -1794,7 +1484,6 @@ code {
   text-decoration: underline;
 }
 
-/* Tablet */
 @media (max-width: 768px) {
   .register-card {
     margin: 30px auto;
@@ -1817,7 +1506,6 @@ code {
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .register-container {
     padding: 16px;
@@ -1862,7 +1550,6 @@ code {
   }
 }
 
-/* Small Phones */
 @media (max-width: 380px) {
   .register-card {
     padding: 16px;
@@ -1881,6 +1568,7 @@ code {
   }
 }
 
+/* Login Page Styles */
 .login-container {
   display: flex;
   justify-content: center;
@@ -1911,7 +1599,6 @@ code {
   color: #050b36;
 }
 
-/* Error Message */
 .login-error {
   background-color: #FEE2E2;
   color: #DC2626;
@@ -1930,7 +1617,6 @@ code {
   text-align: center;
 }
 
-/* Form Styles */
 .login-form {
   width: 100%;
 }
@@ -1993,7 +1679,6 @@ code {
   cursor: not-allowed;
 }
 
-/* Links */
 .login-forgot-btn {
   background: none;
   border: none;
@@ -2021,7 +1706,6 @@ code {
   text-decoration: underline;
 }
 
-/* Forgot Password Section */
 .forgot-password-title {
   text-align: center;
   margin-bottom: 24px;
@@ -2042,8 +1726,6 @@ code {
   text-decoration: underline;
 }
 
-
-/* Tablet */
 @media (max-width: 768px) {
   .login-card {
     margin: 30px auto;
@@ -2067,7 +1749,6 @@ code {
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
   .login-container {
     padding: 16px;
@@ -2113,7 +1794,6 @@ code {
   }
 }
 
-/* Small Phones */
 @media (max-width: 380px) {
   .login-card {
     padding: 16px;
@@ -2130,5 +1810,401 @@ code {
   
   .login-btn {
     padding: 8px;
+  }
+}
+
+
+/* Footer Styles - Consistent with Black Navbar */
+.footer {
+  width: 100%;
+  background-color: black;
+  color: #9ca3af;
+  padding: 60px 40px 30px 40px;
+  margin-top: auto;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  row-gap: 40px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.footer-link {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.footer-link:hover {
+  color: #7d5800;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px 20px 20px;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 16px 16px 16px;
+  }
+  
+  .footer-section h2 {
+    font-size: 20px;
+  }
+  
+  .footer-link {
+    font-size: 12px;
+  }
+}
+
+/* ========================================
+   LEAD'S PAGE STYLES (Home, About, Contact, NotFound, etc.)
+   ======================================== */
+
+/* Layout Classes */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Hero Section */
+.hero {
+  height: 65vh;
+  width: 100%;
+  background-image: url("/images/HomePage.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+/* Search Component - Fixed */
+.search {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 16px 20px;
+  padding-right: 140px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+.search-button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  padding: 0 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: #001E40;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #002d5a;
+}
+
+/* Categories Section */
+.categories {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 40px 20px;
+}
+
+.category-card {
+  width: 180px;
+  padding: 20px;
+  border-radius: 15px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(8, 8, 8, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.categories p {
+  text-align: center;
+  margin: 0;
+}
+
+.categories img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* About Page */
+.about {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #43474F;
+}
+
+.head {
+  font-size: 16px;
+  color: #001E40;
+  margin-bottom: 16px;
+}
+
+.body {
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.section {
+  margin-top: 40px;
+  border: 1px solid rgba(8, 8, 8, 0.1);
+  border-radius: 10px;
+  padding: 48px;
+  margin-bottom: 70px;
+}
+
+.top-head {
+  text-align: center;
+}
+
+/* Contact Page */
+.contact {
+  max-width: 650px;
+  margin: 0px auto;
+  padding: 80px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #43474F;
+}
+
+.form-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  color: #001E40;
+  margin-bottom: 16px;
+}
+
+/* Error Page */
+.error-page {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.error-page h1 {
+  font-size: 120px;
+  margin-bottom: 20px;
+  color: #001E40;
+}
+
+.error-page p {
+  margin-bottom: 20px;
+}
+
+.error-page .text {
+  max-width: 400px;
+  margin: 0 auto 30px;
+  color: #666;
+}
+
+.home-button {
+  background-color: #001E40;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.home-button:hover {
+  background-color: #002d5a;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contact-button {
+  background-color: #001E40;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.contact-button:hover {
+  background-color: #002d5a;
+}
+
+/* Responsive Lead Styles */
+@media (max-width: 768px) {
+  .hero {
+    height: 50vh;
+  }
+  
+  .hero-content h1 {
+    font-size: 28px;
+  }
+  
+  .hero-content p {
+    font-size: 16px;
+  }
+  
+  .search-input {
+    padding: 14px 18px;
+    padding-right: 120px;
+    font-size: 14px;
+  }
+  
+  .search-button {
+    padding: 0 18px;
+    font-size: 14px;
+  }
+  
+  .category-card {
+    width: 150px;
+    padding: 15px;
+  }
+  
+  .section {
+    padding: 24px;
+  }
+  
+  .about {
+    padding: 60px 16px;
+  }
+  
+  .contact {
+    padding: 60px 16px;
+  }
+  
+  .error-page h1 {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-card {
+    width: 130px;
+    padding: 12px;
+  }
+  
+  .categories img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .categories p {
+    font-size: 12px;
+  }
+  
+  .search-input {
+    padding-right: 100px;
+  }
+  
+  .search-button {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+  
+  .home-button,
+  .contact-button {
+    padding: 12px 24px;
   }
 }
