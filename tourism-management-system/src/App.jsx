@@ -12,6 +12,12 @@ import Home from "./pages/Home";
 import About from "./pages/About"
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/contact"
+import AdminRoute from "./components/AdminRoute"
+import AdminLayout from "./pages/admin/AdminLayout"
+import AdminDashboard from "./pages/admin/AdminDashboard"
+import AdminHotels from "./pages/admin/AdminHotels"
+import AdminUsers from "./pages/admin/AdminUsers"
+import AdminBookings from "./pages/admin/AdminBookings"
 
 function App() {
   return (
@@ -34,6 +40,17 @@ function App() {
               <Route path="/my-bookings" element={<MyBookings />} />
               <Route path="/about" element={<About />} />
          <Route path="/contact" element={<Contact />} />
+
+         <Route path="/admin" element={
+                <AdminRoute>
+                  <AdminLayout />
+                </AdminRoute>
+              }>
+                <Route index element={<AdminDashboard />} />
+                <Route path="hotels" element={<AdminHotels />} />
+                <Route path="bookings" element={<AdminBookings />} />
+                <Route path="users" element={<AdminUsers />} />
+                </Route>
           <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
@@ -41,6 +58,8 @@ function App() {
         </div>
       </AuthProvider>
     </BrowserRouter>
+
+          
   )
 }
 

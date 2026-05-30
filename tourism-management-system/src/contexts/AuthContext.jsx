@@ -14,12 +14,19 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const currentUser = getCurrentUser()
-    setUser(currentUser)
-    setLoading(false)
+    const loadUser = () => {
+      const currentUser = getCurrentUser()
+      setUser(currentUser)
+      setLoading(false)
+    }
+    
+    loadUser()
   }, [])
 
-  const login = (userData) => setUser(userData)
+  const login = (userData) => {
+    setUser(userData)
+  }
+  
   const logout = () => {
     logoutUser()
     setUser(null)

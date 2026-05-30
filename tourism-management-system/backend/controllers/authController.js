@@ -8,7 +8,7 @@ export const register = async (req, res) => {
     console.log("Received:", { name, email, password })
 
     if (!name || !email || !password) {
-    console.log("Missing fields")
+      console.log("Missing fields")
       return res.status(400).json({ error: 'All fields are required' })
     }
     if (password.length < 6) {
@@ -26,6 +26,17 @@ export const register = async (req, res) => {
 
     if (error) return res.status(400).json({ error: error.message })
 
+    // Create profile entry for the new user
+    if (data.user) {
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .insert([{ id: data.user.id, name: name, is_admin: false }])
+
+      if (profileError) {
+        console.error('Profile creation error:', profileError)
+      }
+    }
+
     res.status(201).json({
       success: true,
       message: 'Registration successful. Please check your email for confirmation.'
@@ -35,7 +46,7 @@ export const register = async (req, res) => {
   }
 }
 
-// LOGIN
+// LOGIN (includes is_admin)
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -52,13 +63,23 @@ export const login = async (req, res) => {
       return res.status(401).json({ error: 'Please verify your email before logging in' })
     }
 
+    // Fetch is_admin from profiles table
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('is_admin')
+      .eq('id', data.user.id)
+      .maybeSingle()
+
+    const isAdmin = profile?.is_admin === true
+
     res.json({
       success: true,
       token: data.session.access_token,
       user: {
         id: data.user.id,
         email: data.user.email,
-        name: data.user.user_metadata?.full_name
+        name: data.user.user_metadata?.full_name,
+        is_admin: isAdmin
       }
     })
   } catch (err) {
@@ -66,7 +87,7 @@ export const login = async (req, res) => {
   }
 }
 
-// GET PROFILE
+// GET PROFILE (includes is_admin)
 export const getProfile = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1]
@@ -75,11 +96,21 @@ export const getProfile = async (req, res) => {
     const { data: { user }, error } = await supabase.auth.getUser(token)
     if (error || !user) return res.status(401).json({ error: 'Invalid token' })
 
+    // Fetch is_admin from profiles table
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('is_admin')
+      .eq('id', user.id)
+      .maybeSingle()
+
+    const isAdmin = profile?.is_admin === true
+
     res.json({
       user: {
         id: user.id,
         email: user.email,
-        name: user.user_metadata?.full_name
+        name: user.user_metadata?.full_name,
+        is_admin: isAdmin
       }
     })
   } catch (err) {
