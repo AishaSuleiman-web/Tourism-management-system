@@ -24,7 +24,7 @@ function AdminBookings() {
 
       if (error) throw error
       
-      console.log('Raw bookings data:', data)
+     // console.log('Raw bookings data:', data)
       setBookings(data || [])
     } catch (err) {
       console.error('Error fetching bookings:', err)

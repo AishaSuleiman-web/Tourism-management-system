@@ -24,7 +24,7 @@ function AdminUsers() {
 
       if (error) throw error
 
-      console.log('Raw profiles data:', data)
+      //console.log('Raw profiles data:', data)
       setUsers(data || [])
     } catch (err) {
       console.error('Error fetching users:', err)
