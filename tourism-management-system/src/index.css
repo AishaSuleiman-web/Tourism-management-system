@@ -2210,12 +2210,12 @@
 }
 
 /* ========================================
-   ADMIN PANEL STYLES (COMPLETE)
+   ADMIN PANEL STYLES (WHITE/BLUE THEME)
    ======================================== */
 
 .admin-layout {
   min-height: 100vh;
-  background-color: #17130d;
+  background-color: #f8f9ff;
 }
 
 /* Desktop Sidebar */
@@ -2225,8 +2225,8 @@
   top: 0;
   width: 280px;
   height: 100%;
-  background-color: #231f19;
-  border-right: 1px solid #4f4537;
+  background-color: white;
+  border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   padding: 24px 0;
@@ -2241,7 +2241,7 @@
 .admin-logo h1 {
   font-size: 24px;
   font-weight: bold;
-  color: #f0bf65;
+  color: #3B82F6;
 }
 
 .admin-nav {
@@ -2255,21 +2255,22 @@
   gap: 12px;
   padding: 10px 16px;
   border-radius: 8px;
-  color: #d2c5b2;
+  color: #4b5563;
   text-decoration: none;
   transition: all 0.2s;
   margin-bottom: 4px;
 }
 
 .admin-nav-item:hover {
-  background-color: #2e2923;
+  background-color: #eff6ff;
+  color: #3B82F6;
 }
 
 .admin-nav-item.active {
-  background-color: rgba(240, 191, 101, 0.1);
-  color: #f0bf65;
+  background-color: #eff6ff;
+  color: #3B82F6;
   font-weight: bold;
-  border-left: 4px solid #f0bf65;
+  border-left: 4px solid #3B82F6;
 }
 
 .admin-nav-item .material-symbols-outlined {
@@ -2290,13 +2291,15 @@
   background: none;
   border: none;
   border-radius: 8px;
-  color: #d2c5b2;
+  color: #4b5563;
   cursor: pointer;
   text-align: left;
+  transition: all 0.2s;
 }
 
 .admin-logout button:hover {
-  background-color: #2e2923;
+  background-color: #eff6ff;
+  color: #3B82F6;
 }
 
 /* Mobile Header */
@@ -2306,35 +2309,35 @@
   align-items: center;
   padding: 0 16px;
   height: 64px;
-  background-color: #17130d;
+  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
-  border-bottom: 1px solid #4f4537;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .admin-mobile-menu-btn {
   background: none;
   border: none;
-  color: #f0bf65;
+  color: #3B82F6;
   cursor: pointer;
 }
 
 .admin-mobile-header h2 {
   font-size: 20px;
   font-weight: 500;
-  color: #f0bf65;
+  color: #1f2937;
 }
 
 .admin-mobile-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #2e2923;
+  background-color: #e5e7eb;
   overflow: hidden;
-  border: 1px solid #4f4537;
+  border: 1px solid #d1d5db;
 }
 
 .admin-mobile-avatar img {
@@ -2351,8 +2354,8 @@
   left: 0;
   right: 0;
   height: 64px;
-  background-color: #231f19;
-  border-top: 1px solid #4f4537;
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
   justify-content: space-around;
   align-items: center;
   padding: 0 16px;
@@ -2360,7 +2363,7 @@
 }
 
 .admin-bottom-nav a {
-  color: #d2c5b2;
+  color: #6b7280;
   text-decoration: none;
   padding: 8px;
   border-radius: 12px;
@@ -2370,8 +2373,8 @@
 }
 
 .admin-bottom-nav a.active {
-  color: #f0bf65;
-  background-color: rgba(240, 191, 101, 0.1);
+  color: #3B82F6;
+  background-color: #eff6ff;
 }
 
 .admin-bottom-nav .material-symbols-outlined {
@@ -2385,11 +2388,12 @@
   top: 0;
   width: 280px;
   height: 100%;
-  background-color: #231f19;
+  background-color: white;
   z-index: 60;
   padding: 24px;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
 }
 
 .admin-mobile-drawer.open {
@@ -2410,7 +2414,7 @@
 .admin-drawer-header h1 {
   font-size: 24px;
   font-weight: bold;
-  color: #f0bf65;
+  color: #3B82F6;
 }
 
 .admin-drawer-nav {
@@ -2425,13 +2429,18 @@
   gap: 12px;
   padding: 10px 16px;
   border-radius: 8px;
-  color: #d2c5b2;
+  color: #4b5563;
   text-decoration: none;
 }
 
 .admin-drawer-nav a.active {
-  background-color: rgba(240, 191, 101, 0.1);
-  color: #f0bf65;
+  background-color: #eff6ff;
+  color: #3B82F6;
+}
+
+.admin-drawer-nav a:hover {
+  background-color: #eff6ff;
+  color: #3B82F6;
 }
 
 .admin-drawer-logout {
@@ -2447,9 +2456,14 @@
   background: none;
   border: none;
   border-radius: 8px;
-  color: #d2c5b2;
+  color: #4b5563;
   cursor: pointer;
   text-align: left;
+}
+
+.admin-drawer-logout button:hover {
+  background-color: #eff6ff;
+  color: #3B82F6;
 }
 
 /* Main Content */
@@ -2457,6 +2471,7 @@
   margin-left: 280px;
   padding: 32px;
   min-height: 100vh;
+  background-color: #f8f9ff;
 }
 
 /* Page Header */
@@ -2472,11 +2487,11 @@
 .admin-page-header h1 {
   font-size: 28px;
   font-weight: 600;
-  color: white;
+  color: #1f2937;
 }
 
 .admin-page-header p {
-  color: #d2c5b2;
+  color: #6b7280;
   margin-top: 4px;
 }
 
@@ -2489,50 +2504,52 @@
 }
 
 .admin-stat-card {
-  background-color: #242424;
+  background-color: white;
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid #333333;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .admin-stat-icon {
   padding: 8px;
-  background-color: rgba(240, 191, 101, 0.1);
+  background-color: #eff6ff;
   border-radius: 8px;
   display: inline-block;
   margin-bottom: 16px;
-  color: #f0bf65;
+  color: #3B82F6;
 }
 
 .admin-stat-label {
   font-size: 12px;
-  color: #d2c5b2;
+  color: #6b7280;
   margin-bottom: 4px;
 }
 
 .admin-stat-value {
   font-size: 28px;
   font-weight: bold;
-  color: white;
+  color: #1f2937;
 }
 
 /* Tables */
 .admin-table-card {
-  background-color: #242424;
+  background-color: white;
   border-radius: 12px;
-  border: 1px solid #333333;
+  border: 1px solid #e5e7eb;
   overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .admin-table-header {
   padding: 16px 20px;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .admin-table-header h4 {
   font-size: 18px;
   font-weight: 600;
-  color: white;
+  color: #1f2937;
 }
 
 .admin-table-wrapper {
@@ -2547,28 +2564,28 @@
 
 .admin-table th {
   padding: 12px 20px;
-  background-color: #1a1a1a;
-  color: #d2c5b2;
+  background-color: #f9fafb;
+  color: #4b5563;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .admin-table td {
   padding: 16px 20px;
-  border-bottom: 1px solid #333333;
-  color: #ebe1d7;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
 }
 
 .admin-table tr:hover {
-  background-color: #2a2a2a;
+  background-color: #f9fafb;
 }
 
 /* Status Badges */
 .admin-status-confirmed {
-  background-color: rgba(16, 185, 129, 0.1);
-  color: #34d399;
+  background-color: #dbeafe;
+  color: #1e40af;
   padding: 4px 12px;
   border-radius: 9999px;
   font-size: 11px;
@@ -2577,8 +2594,8 @@
 }
 
 .admin-status-pending {
-  background-color: rgba(245, 158, 11, 0.1);
-  color: #fbbf24;
+  background-color: #fed7aa;
+  color: #9a3412;
   padding: 4px 12px;
   border-radius: 9999px;
   font-size: 11px;
@@ -2587,8 +2604,8 @@
 }
 
 .admin-status-cancelled {
-  background-color: rgba(239, 68, 68, 0.1);
-  color: #f87171;
+  background-color: #fee2e2;
+  color: #991b1b;
   padding: 4px 12px;
   border-radius: 9999px;
   font-size: 11px;
@@ -2603,18 +2620,18 @@
   cursor: pointer;
   padding: 6px;
   border-radius: 6px;
-  color: #d2c5b2;
+  color: #6b7280;
   transition: all 0.2s;
   margin: 0 2px;
 }
 
 .admin-action-btn:hover {
-  background-color: #2e2923;
-  color: #f0bf65;
+  background-color: #f3f4f6;
+  color: #3B82F6;
 }
 
 .admin-action-btn.delete:hover {
-  color: #f87171;
+  color: #dc2626;
 }
 
 /* Search Bar */
@@ -2626,20 +2643,21 @@
   width: 100%;
   max-width: 300px;
   padding: 10px 16px;
-  background-color: #1a1a1a;
-  border: 1px solid #333333;
+  background-color: white;
+  border: 1px solid #d1d5db;
   border-radius: 12px;
-  color: white;
+  color: #1f2937;
   outline: none;
 }
 
 .admin-search-input:focus {
-  border-color: #f0bf65;
+  border-color: #3B82F6;
+  ring: 2px solid rgba(59,130,246,0.2);
 }
 
 /* Add Button */
 .admin-add-btn {
-  background-color: #7d5800;
+  background-color: #3B82F6;
   color: white;
   padding: 10px 20px;
   border-radius: 12px;
@@ -2653,14 +2671,14 @@
 }
 
 .admin-add-btn:hover {
-  background-color: #5c4200;
+  background-color: #2563EB;
 }
 
 /* Modal */
 .admin-modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 100;
 }
 
@@ -2669,20 +2687,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #242424;
+  background-color: white;
   border-radius: 16px;
   padding: 24px;
   width: 90%;
   max-width: 500px;
   z-index: 101;
-  border: 1px solid #333;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .admin-modal h3 {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 16px;
-  color: white;
+  color: #1f2937;
 }
 
 .admin-modal input,
@@ -2691,9 +2710,9 @@
   width: 100%;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #333;
-  background-color: #1a1a1a;
-  color: white;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #1f2937;
   margin-bottom: 16px;
 }
 
@@ -2701,7 +2720,8 @@
 .admin-modal textarea:focus,
 .admin-modal select:focus {
   outline: none;
-  border-color: #f0bf65;
+  border-color: #3B82F6;
+  ring: 2px solid rgba(59,130,246,0.2);
 }
 
 .admin-modal-buttons {
@@ -2713,19 +2733,27 @@
 .admin-modal-cancel {
   padding: 10px 20px;
   border-radius: 8px;
-  border: 1px solid #333;
-  background-color: transparent;
-  color: #d2c5b2;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #4b5563;
   cursor: pointer;
+}
+
+.admin-modal-cancel:hover {
+  background-color: #f9fafb;
 }
 
 .admin-modal-submit {
   padding: 10px 20px;
   border-radius: 8px;
   border: none;
-  background-color: #7d5800;
+  background-color: #3B82F6;
   color: white;
   cursor: pointer;
+}
+
+.admin-modal-submit:hover {
+  background-color: #2563EB;
 }
 
 /* Admin Responsive */
@@ -2767,20 +2795,18 @@
   }
 }
 
-
-
 /* Admin additional styles */
 .admin-loading {
   text-align: center;
   padding: 40px;
-  color: #d2c5b2;
+  color: #6b7280;
   font-family: 'Inter', sans-serif;
 }
 
 .admin-error {
   text-align: center;
   padding: 40px;
-  color: #f87171;
+  color: #dc2626;
   font-family: 'Inter', sans-serif;
 }
 
@@ -2788,13 +2814,17 @@
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
-  background-color: #7d5800;
+  background-color: #3B82F6;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
+}
+
+.admin-retry-btn:hover {
+  background-color: #2563EB;
 }
 
 .admin-filters {
@@ -2806,26 +2836,31 @@
 
 .admin-status-filter {
   padding: 10px 16px;
-  background-color: #1a1a1a;
-  border: 1px solid #333;
+  background-color: white;
+  border: 1px solid #d1d5db;
   border-radius: 12px;
-  color: white;
+  color: #1f2937;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   cursor: pointer;
 }
 
+.admin-status-filter:focus {
+  outline: none;
+  border-color: #3B82F6;
+}
+
 .admin-price {
   font-weight: bold;
-  color: #f0bf65;
+  color: #3B82F6;
 }
 
 .admin-status-select {
   padding: 4px 8px;
   border-radius: 6px;
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  color: white;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  color: #1f2937;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
 }
@@ -2846,7 +2881,7 @@
   cursor: pointer;
   padding: 6px;
   border-radius: 6px;
-  color: #d2c5b2;
+  color: #6b7280;
   transition: all 0.2s;
   display: inline-flex;
   align-items: center;
@@ -2854,18 +2889,18 @@
 }
 
 .admin-action-edit:hover {
-  background-color: #2e2923;
-  color: #f0bf65;
+  background-color: #f3f4f6;
+  color: #3B82F6;
 }
 
 .admin-action-delete:hover,
 .admin-action-delete-all:hover {
-  background-color: #2e2923;
-  color: #f87171;
+  background-color: #fef2f2;
+  color: #dc2626;
 }
 
 .admin-action-cancel {
-  color: #f0bf65;
+  color: #3B82F6;
 }
 
 .admin-user-info {
@@ -2878,11 +2913,11 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgba(240, 191, 101, 0.2);
+  background-color: #eff6ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f0bf65;
+  color: #3B82F6;
   font-weight: bold;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
@@ -2890,20 +2925,20 @@
 
 .admin-user-name {
   font-weight: 500;
-  color: white;
+  color: #1f2937;
   font-family: 'Inter', sans-serif;
 }
 
 .admin-user-id {
   font-size: 11px;
-  color: #d2c5b2;
+  color: #6b7280;
   font-family: 'Inter', sans-serif;
 }
 
 .admin-empty-state {
   text-align: center;
   padding: 40px;
-  color: #d2c5b2;
+  color: #6b7280;
   font-family: 'Inter', sans-serif;
 }
 

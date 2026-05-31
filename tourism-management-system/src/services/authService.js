@@ -19,7 +19,7 @@ export const registerUser = async (userData) => {
   }
 }
 
-// Login user
+
 export const loginUser = async (email, password) => {
   try {
     const response = await fetch(`${API_URL}/login`, {
@@ -41,7 +41,7 @@ export const loginUser = async (email, password) => {
   }
 }
 
-// Get profile
+
 export const getProfile = async () => {
   const token = localStorage.getItem('token')
   if (!token) return { success: false, error: 'No token' }
@@ -58,7 +58,7 @@ export const getProfile = async () => {
   }
 }
 
-// Forgot password request
+
 export const forgotPassword = async (email) => {
   try {
     const response = await fetch(`${API_URL}/forgot-password`, {
@@ -74,7 +74,7 @@ export const forgotPassword = async (email) => {
   }
 }
 
-// Update password
+
 export const updatePassword = async (password, token) => {
   try {
     const response = await fetch(`${API_URL}/reset-password`, {
@@ -90,7 +90,7 @@ export const updatePassword = async (password, token) => {
   }
 }
 
-// Logout
+
 export const logoutUser = () => {
   localStorage.removeItem('token')
   localStorage.removeItem('user')

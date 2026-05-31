@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { loginUser, forgotPassword } from '../services/authService'
 
 function Login() {
+  const [searchParams] = useSearchParams()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState({})
@@ -14,6 +15,10 @@ function Login() {
   const [resetMessage, setResetMessage] = useState('')
   const navigate = useNavigate()
   const { login } = useAuth()
+
+  // Get verification status from URL
+  const verified = searchParams.get('verified')
+  const error = searchParams.get('error')
 
   const validateEmail = (email) => {
     if (!email) return 'Email is required'
@@ -37,7 +42,7 @@ function Login() {
 
     if (result.success) {
       login(result.data.user)
-      navigate('/dashboard')
+      navigate('/')
     } else {
       setServerError(result.error)
     }
@@ -74,6 +79,22 @@ function Login() {
         {!showForgot ? (
           <>
             <h2 className="login-title">Welcome Back</h2>
+            
+            {/* Verification success message */}
+            {verified && (
+              <div className="login-success">
+                Email verified successfully! You can now log in.
+              </div>
+            )}
+            
+            {/* Verification error message */}
+            {error && (
+              <div className="login-error">
+                {error}
+              </div>
+            )}
+            
+            {/* Login error message */}
             {serverError && <div className="login-error">{serverError}</div>}
             
             <form className="login-form" onSubmit={handleLogin}>

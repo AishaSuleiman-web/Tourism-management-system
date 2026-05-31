@@ -5,7 +5,7 @@ export const getAllHotels = async () => {
     const response = await fetch(API_URL)
     const data = await response.json()
     
-    console.log('Raw API response:', data)  // Debug line
+    //console.log('Raw API response:', data)  // Debug line
     
     if (!response.ok) {
       throw new Error(data.error || 'Failed to fetch hotels')

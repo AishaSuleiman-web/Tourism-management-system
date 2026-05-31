@@ -12,9 +12,19 @@ function ResetPassword() {
   const location = useLocation()
 
   useEffect(() => {
+    // Extract token from URL hash (Supabase uses hash fragment)
     const hashParams = new URLSearchParams(location.hash.substring(1))
-    const token = hashParams.get('access_token')
-    if (token) localStorage.setItem('reset_token', token)
+    let token = hashParams.get('access_token')
+    
+    // Also check query params for custom token (nodemailer fallback)
+    const queryParams = new URLSearchParams(location.search)
+    const queryToken = queryParams.get('token')
+    
+    if (token) {
+      localStorage.setItem('reset_token', token)
+    } else if (queryToken) {
+      localStorage.setItem('reset_token', queryToken)
+    }
   }, [location])
 
   const handleSubmit = async (e) => {
@@ -32,6 +42,13 @@ function ResetPassword() {
 
     setLoading(true)
     const token = localStorage.getItem('reset_token')
+    
+    if (!token) {
+      setError('No reset token found. Please request a new password reset.')
+      setLoading(false)
+      return
+    }
+
     const result = await updatePassword(password, token)
 
     if (result.success) {
@@ -39,30 +56,64 @@ function ResetPassword() {
       localStorage.removeItem('reset_token')
       setTimeout(() => navigate('/login'), 3000)
     } else {
-      setError(result.error)
+      setError(result.error || 'Failed to update password')
     }
     setLoading(false)
   }
 
   return (
-    <div style={{ maxWidth: '400px', margin: '50px auto', padding: '30px', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Reset Password</h2>
-      {message && <div style={{ backgroundColor: '#D1FAE5', color: '#065F46', padding: '12px', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>{message}</div>}
-      {error && <div style={{ backgroundColor: '#FEE2E2', color: '#DC2626', padding: '12px', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>{error}</div>}
-      
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '15px' }}>
-          <label>New Password</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: '100%', padding: '10px', marginTop: '5px', borderRadius: '8px', border: '1px solid #D1D5DB' }} required />
-        </div>
-        <div style={{ marginBottom: '15px' }}>
-          <label>Confirm New Password</label>
-          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} style={{ width: '100%', padding: '10px', marginTop: '5px', borderRadius: '8px', border: '1px solid #D1D5DB' }} required />
-        </div>
-        <button type="submit" disabled={loading} style={{ width: '100%', padding: '12px', backgroundColor: loading ? '#9CA3AF' : '#3B82F6', color: 'white', border: 'none', borderRadius: '8px', cursor: loading ? 'not-allowed' : 'pointer' }}>
-          {loading ? 'Updating...' : 'Update Password'}
-        </button>
-      </form>
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Reset Password</h2>
+        
+        {message && (
+          <div className="login-success">
+            {message}
+          </div>
+        )}
+        
+        {error && (
+          <div className="login-error">
+            {error}
+          </div>
+        )}
+        
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="login-form-group">
+            <label className="login-label">New Password</label>
+            <input 
+              type="password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              className="login-input"
+              required
+            />
+          </div>
+
+          <div className="login-form-group">
+            <label className="login-label">Confirm New Password</label>
+            <input 
+              type="password" 
+              value={confirmPassword} 
+              onChange={(e) => setConfirmPassword(e.target.value)} 
+              className="login-input"
+              required
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            className="login-btn" 
+            disabled={loading}
+          >
+            {loading ? 'Updating...' : 'Reset Password'}
+          </button>
+        </form>
+
+        <p className="login-footer">
+          <a href="/login">Back to Login</a>
+        </p>
+      </div>
     </div>
   )
 }

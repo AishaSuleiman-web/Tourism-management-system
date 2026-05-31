@@ -18,6 +18,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard"
 import AdminHotels from "./pages/admin/AdminHotels"
 import AdminUsers from "./pages/admin/AdminUsers"
 import AdminBookings from "./pages/admin/AdminBookings"
+import ResetPassword from './pages/ResetPassword'
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
               <Route path="/my-bookings" element={<MyBookings />} />
               <Route path="/about" element={<About />} />
          <Route path="/contact" element={<Contact />} />
+         <Route path="/reset-password" element={<ResetPassword />} />
 
          <Route path="/admin" element={
                 <AdminRoute>

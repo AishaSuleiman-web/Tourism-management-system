@@ -85,7 +85,7 @@ function HotelDetails() {
     if (result.success) {
       setBookingMessage('Booking confirmed! Check your email for details.')
       setShowBookingForm(false)
-      setTimeout(() => navigate('/dashboard'), 2000)
+      setTimeout(() => navigate('/'), 2000)
     } else {
       setBookingMessage(result.error)
     }
