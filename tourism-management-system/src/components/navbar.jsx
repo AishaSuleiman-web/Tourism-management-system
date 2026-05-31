@@ -16,29 +16,20 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-       
+        
         <div className="logo">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
             TourEase
           </Link>
         </div>
 
-        
         <div className="nav-links">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/hotels">Hotels</NavLink>
           <NavLink to="/destinations">Destinations</NavLink>
           <NavLink to="/tours">Tour Guides</NavLink>
-          
-         
-          {isAuthenticated && user?.is_admin && (
-            <NavLink to="/admin" style={{ color: '#7d5800', fontWeight: 'bold' }}>
-              Admin
-            </NavLink>
-          )}
         </div>
 
-        
         <div className="auth-buttons">
           {isAuthenticated ? (
             <>
@@ -65,7 +56,6 @@ function Navbar() {
           )}
         </div>
 
-       
         <button 
           className="mobile-menu-btn"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -74,19 +64,11 @@ function Navbar() {
         </button>
       </nav>
 
-      
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</NavLink>
         <NavLink to="/hotels" onClick={() => setIsMobileMenuOpen(false)}>Hotels</NavLink>
         <NavLink to="/destinations" onClick={() => setIsMobileMenuOpen(false)}>Destinations</NavLink>
         <NavLink to="/tours" onClick={() => setIsMobileMenuOpen(false)}>Tour Guides</NavLink>
-        
-        
-        {isAuthenticated && user?.is_admin && (
-          <NavLink to="/admin" onClick={() => setIsMobileMenuOpen(false)} style={{ color: '#7d5800', fontWeight: 'bold' }}>
-            Admin
-          </NavLink>
-        )}
         
         <div style={{ height: '1px', backgroundColor: '#333', margin: '8px 0' }}></div>
         
