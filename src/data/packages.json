@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "destination": "Olumo Rock",
+    "duration": "2 Days",
+    "price": 50000,
+    "inclusions": "Tour guide, transport",
+    "image": "/images/olumo.jpg"
+  },
+  {
+    "id": 2,
+    "destination": "Tarkwa Bay Beach",
+    "duration": "1 Day",
+    "price": 30000,
+    "inclusions": "Boat ride, refreshments",
+    "image": "/images/tarkwa.jpg"
+  },
+  {
+    "id": 3,
+    "destination": "Lagos City Tour",
+    "duration": "3 Days",
+    "price": 70000,
+    "inclusions": "Hotel, transport, meals",
+    "image": "/images/lagos.jpg"
+  },
+  {
+    "id": 4,
+    "destination": "Erin Ijesha Waterfalls",
+    "duration": "2 Days",
+    "price": 45000,
+    "inclusions": "Guide, hiking",
+    "image": "/images/erin.jpg"
+  },
+  {
+    "id": 5,
+    "destination": "Osun-Osogbo Grove",
+    "duration": "2 Days",
+    "price": 40000,
+    "inclusions": "Cultural tour",
+    "image": "/images/osun.jpg"
+  },
+  {
+    "id": 6,
+    "destination": "Abuja City Tour",
+    "duration": "3 Days",
+    "price": 80000,
+    "inclusions": "Hotel, transport",
+    "image": "/images/abuja.jpg"
+  },
+  {
+    "id": 7,
+    "destination": "Idanre Hills",
+    "duration": "2 Days",
+    "price": 55000,
+    "inclusions": "Hiking, guide",
+    "image": "/images/idanre.jpg"
+  },
+  {
+    "id": 8,
+    "destination": "Elegushi Beach",
+    "duration": "1 Day",
+    "price": 25000,
+    "inclusions": "Entry, relaxation",
+    "image": "/images/elegushi.jpg"
+  },
+  {
+    "id": 9,
+    "destination": "Calabar Carnival Tour",
+    "duration": "4 Days",
+    "price": 120000,
+    "inclusions": "Festival access, hotel",
+    "image": "/images/calabar.jpg"
+  },
+  {
+    "id": 10,
+    "destination": "Badagry Slave Route",
+    "duration": "2 Days",
+    "price": 35000,
+    "inclusions": "Historical tour",
+    "image": "/images/badagry.jpg"
+  }
+]
