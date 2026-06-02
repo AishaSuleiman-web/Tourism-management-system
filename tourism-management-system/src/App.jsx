@@ -19,6 +19,8 @@ import AdminHotels from "./pages/admin/AdminHotels"
 import AdminUsers from "./pages/admin/AdminUsers"
 import AdminBookings from "./pages/admin/AdminBookings"
 import ResetPassword from './pages/ResetPassword'
+import GuideDetails from './pages/GuideDetails'
+import Guides from './pages/Guides'
 
 function App() {
   return (
@@ -42,6 +44,9 @@ function App() {
               <Route path="/about" element={<About />} />
          <Route path="/contact" element={<Contact />} />
          <Route path="/reset-password" element={<ResetPassword />} />
+
+            <Route path="/guides" element={<Guides />} />
+              <Route path="/guide/:id" element={<GuideDetails />} />
 
          <Route path="/admin" element={
                 <AdminRoute>

@@ -27,7 +27,7 @@ function Navbar() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/hotels">Hotels</NavLink>
           <NavLink to="/destinations">Destinations</NavLink>
-          <NavLink to="/tours">Tour Guides</NavLink>
+          <NavLink to="/guides">Tour Guides</NavLink>
           
           {/* Admin link for admin users */}
           {isAuthenticated && user?.is_admin && (
