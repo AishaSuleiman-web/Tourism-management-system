@@ -27,12 +27,7 @@ function Navbar() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/hotels">Hotels</NavLink>
           <NavLink to="/destinations">Destinations</NavLink>
-          <NavLink to="/guides">Tour Guides</NavLink>
-          
-          {/* Admin link for admin users */}
-          {isAuthenticated && user?.is_admin && (
-            <NavLink to="/admin">Admin</NavLink>
-          )}
+          <NavLink to="/tours">Tour Guides</NavLink>
         </div>
 
         <div className="auth-buttons">
@@ -74,11 +69,6 @@ function Navbar() {
         <NavLink to="/hotels" onClick={() => setIsMobileMenuOpen(false)}>Hotels</NavLink>
         <NavLink to="/destinations" onClick={() => setIsMobileMenuOpen(false)}>Destinations</NavLink>
         <NavLink to="/tours" onClick={() => setIsMobileMenuOpen(false)}>Tour Guides</NavLink>
-        
-        {/* Admin link in mobile menu */}
-        {isAuthenticated && user?.is_admin && (
-          <NavLink to="/admin" onClick={() => setIsMobileMenuOpen(false)}>Admin</NavLink>
-        )}
         
         <div style={{ height: '1px', backgroundColor: '#333', margin: '8px 0' }}></div>
         

@@ -4,29 +4,47 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-section">
+      
+        <div className="footer-logo-section">
           <h2>TourEase</h2>
-          <p>
+          <p className="footer-description">
+            Elevating Nigerian Hospitality with unparalleled luxury and local expertise.
+          </p>
+          <p className="footer-copyright">
             © 2025 TourEase. All Rights Reserved.
           </p>
         </div>
 
+       
         <div className="footer-section">
-          <Link to="/about" className="footer-link">Our Story</Link>
-          <Link to="/destinations" className="footer-link">Destinations</Link>
+          <h3>Quick Links</h3>
+          <div className="footer-links">
+            <Link to="/about">Our Story</Link>
+            <Link to="/destinations">Destinations</Link>
+            <Link to="/hotels">Hotels</Link>
+          </div>
         </div>
 
+        
         <div className="footer-section">
-          <Link to="/terms" className="footer-link">Terms of Service</Link>
-          <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+          <h3>Legal</h3>
+          <div className="footer-links">
+            <Link to="/terms">Terms of Service</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+          </div>
         </div>
 
+        
         <div className="footer-section">
-          <Link to="/contact" className="footer-link">Contact</Link>
+          <h3>Support</h3>
+          <div className="footer-links">
+            <Link to="/contact">Contact Us</Link>
+            <Link to="/faq">FAQs</Link>
+          </div>
         </div>
       </div>
     </footer>
   );
 }
 
-export default Footer
+export default Footer;
