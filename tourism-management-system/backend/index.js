@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/authRoutes.js'
 import hotelRoutes from './routes/hotelRoutes.js'
 import guideRoutes from './routes/guideRoutes.js'
+import packageRoutes from './routes/packageRoutes.js'
 
 dotenv.config()
 
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/hotels', hotelRoutes)
 app.use('/api/guides', guideRoutes)
+app.use('/api/packages', packageRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'TourEase API is running' })

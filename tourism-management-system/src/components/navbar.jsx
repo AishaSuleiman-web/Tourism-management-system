@@ -26,8 +26,8 @@ function Navbar() {
         <div className="nav-links">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/hotels">Hotels</NavLink>
-          <NavLink to="/destinations">Destinations</NavLink>
-          <NavLink to="/tours">Tour Guides</NavLink>
+          <NavLink to="/packages">Destinations</NavLink>
+          <NavLink to="/guides">Tour Guides</NavLink>
         </div>
 
         <div className="auth-buttons">
