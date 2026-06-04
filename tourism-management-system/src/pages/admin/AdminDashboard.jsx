@@ -4,6 +4,8 @@ import { supabase } from "../../config/supabaseClient"
 function AdminDashboard() {
   const [stats, setStats] = useState({
     totalHotels: 0,
+    totalGuides: 0,
+    totalPackages: 0,
     totalBookings: 0,
     totalUsers: 0,
     recentBookings: []
@@ -23,9 +25,14 @@ function AdminDashboard() {
         .from('hotels')
         .select('*', { count: 'exact', head: true })
 
-      // Get total bookings
-      const { count: bookingsCount } = await supabase
-        .from('bookings')
+      // Get total guides
+      const { count: guidesCount } = await supabase
+        .from('guides')
+        .select('*', { count: 'exact', head: true })
+
+      // Get total packages
+      const { count: packagesCount } = await supabase
+        .from('travel_packages')
         .select('*', { count: 'exact', head: true })
 
       // Get total users
@@ -33,26 +40,60 @@ function AdminDashboard() {
         .from('profiles')
         .select('*', { count: 'exact', head: true })
 
-      // Get recent bookings
-      const { data: recentBookings } = await supabase
-        .from('bookings')
-        .select(`
-          id,
-          check_in,
-          check_out,
-          total_price,
-          status,
-          hotels (name, location),
-          profiles (name)
-        `)
-        .order('created_at', { ascending: false })
-        .limit(5)
+      // Get all bookings from different tables
+      const [hotelBookings, guideBookings, packageBookings] = await Promise.all([
+        supabase.from('bookings').select('*, hotels(name), profiles(name)').order('created_at', { ascending: false }).limit(3),
+        supabase.from('guide_bookings').select('*, guides(name), profiles(name)').order('created_at', { ascending: false }).limit(3),
+        supabase.from('package_bookings').select('*, travel_packages(destination), profiles(name)').order('created_at', { ascending: false }).limit(3)
+      ])
+
+      // Combine all bookings with type labels
+      const allBookings = [
+        ...(hotelBookings.data || []).map(b => ({
+          ...b,
+          type: 'hotel',
+          typeLabel: 'Hotel',
+          item_name: b.hotels?.name,
+          date_display: `${new Date(b.check_in).toLocaleDateString()} - ${new Date(b.check_out).toLocaleDateString()}`,
+          price: b.total_price
+        })),
+        ...(guideBookings.data || []).map(b => ({
+          ...b,
+          type: 'guide',
+          typeLabel: 'Tour Guide',
+          item_name: b.guides?.name,
+          date_display: new Date(b.tour_date).toLocaleDateString(),
+          price: b.total_price
+        })),
+        ...(packageBookings.data || []).map(b => ({
+          ...b,
+          type: 'package',
+          typeLabel: 'Package',
+          item_name: b.travel_packages?.destination,
+          date_display: new Date(b.booking_date).toLocaleDateString(),
+          price: b.total_price
+        }))
+      ]
+
+      // Sort all bookings by created_at
+      allBookings.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+      
+      // Get total count from all booking tables
+      const [{ count: hotelCount }, { count: guideCount }, { count: packageCount }] = await Promise.all([
+        supabase.from('bookings').select('*', { count: 'exact', head: true }),
+        supabase.from('guide_bookings').select('*', { count: 'exact', head: true }),
+        supabase.from('package_bookings').select('*', { count: 'exact', head: true })
+      ])
+
+      const totalBookings = (hotelCount || 0) + (guideCount || 0) + (packageCount || 0)
 
       setStats({
         totalHotels: hotelsCount || 0,
-        totalBookings: bookingsCount || 0,
+        totalGuides: guidesCount || 0,
+        totalPackages: packagesCount || 0,
+        totalBookings: totalBookings,
         totalUsers: usersCount || 0,
-        recentBookings: recentBookings || []
+        recentBookings: allBookings.slice(0, 5)
       })
     } catch (error) {
       console.error('Error fetching stats:', error)
@@ -65,8 +106,17 @@ function AdminDashboard() {
     return '₦' + amount.toLocaleString()
   }
 
+  const getTypeColor = (type) => {
+    switch(type) {
+      case 'hotel': return '#3B82F6'
+      case 'guide': return '#10B981'
+      case 'package': return '#F59E0B'
+      default: return '#666'
+    }
+  }
+
   if (loading) {
-    return <div style={{ textAlign: 'center', padding: '40px', color: 'white' }}>Loading dashboard...</div>
+    return <div className="admin-loading">Loading dashboard...</div>
   }
 
   return (
@@ -74,7 +124,7 @@ function AdminDashboard() {
       <div className="admin-page-header">
         <div>
           <h1>Dashboard Overview</h1>
-          <p>Insights for premium hotel management</p>
+          <p>Insights for hotel, tour guide, and package management</p>
         </div>
       </div>
 
@@ -85,6 +135,22 @@ function AdminDashboard() {
           </div>
           <p className="admin-stat-label">Total Hotels</p>
           <p className="admin-stat-value">{stats.totalHotels}</p>
+        </div>
+
+        <div className="admin-stat-card">
+          <div className="admin-stat-icon">
+            <span className="material-symbols-outlined">tour</span>
+          </div>
+          <p className="admin-stat-label">Tour Guides</p>
+          <p className="admin-stat-value">{stats.totalGuides}</p>
+        </div>
+
+        <div className="admin-stat-card">
+          <div className="admin-stat-icon">
+            <span className="material-symbols-outlined">card_travel</span>
+          </div>
+          <p className="admin-stat-label">Travel Packages</p>
+          <p className="admin-stat-value">{stats.totalPackages}</p>
         </div>
 
         <div className="admin-stat-card">
@@ -112,16 +178,20 @@ function AdminDashboard() {
           <table className="admin-table">
             <thead>
               <tr>
+                <th>Type</th>
                 <th>Guest</th>
-                <th>Hotel</th>
-                <th>Dates</th>
+                <th>Item / Service</th>
+                <th>Date(s)</th>
                 <th>Price</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
-              {stats.recentBookings.map((booking) => (
-                <tr key={booking.id}>
+              {stats.recentBookings.map((booking, index) => (
+                <tr key={`${booking.type}-${booking.id}-${index}`}>
+                  <td style={{ color: getTypeColor(booking.type), fontWeight: 'bold' }}>
+                    {booking.typeLabel}
+                  </td>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <div style={{
@@ -141,12 +211,10 @@ function AdminDashboard() {
                       <span>{booking.profiles?.name || 'Guest'}</span>
                     </div>
                   </td>
-                  <td>{booking.hotels?.name || 'Unknown'}</td>
-                  <td>
-                    {new Date(booking.check_in).toLocaleDateString()} - {new Date(booking.check_out).toLocaleDateString()}
-                  </td>
+                  <td>{booking.item_name || 'Unknown'}</td>
+                  <td>{booking.date_display}</td>
                   <td style={{ fontWeight: 'bold', color: '#f0bf65' }}>
-                    {formatCurrency(booking.total_price)}
+                    {formatCurrency(booking.price)}
                   </td>
                   <td>
                     <span className={booking.status === 'confirmed' ? 'admin-status-confirmed' : 'admin-status-pending'}>
@@ -155,6 +223,13 @@ function AdminDashboard() {
                   </td>
                 </tr>
               ))}
+              {stats.recentBookings.length === 0 && (
+                <tr>
+                  <td colSpan="6" style={{ textAlign: 'center', padding: '40px' }}>
+                    No recent bookings found
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
