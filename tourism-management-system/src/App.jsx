@@ -23,6 +23,8 @@ import GuideDetails from './pages/GuideDetails'
 import Guides from './pages/Guides'
 import Packages from './pages/Packages'
 import PackageDetails from './pages/PackageDetails'
+import AdminPackages from "./pages/admin/AdminPackages"
+import AdminGuides from "./pages/admin/AdminGuides"
 
 function App() {
   return (
@@ -62,6 +64,8 @@ function App() {
                 <Route path="hotels" element={<AdminHotels />} />
                 <Route path="bookings" element={<AdminBookings />} />
                 <Route path="users" element={<AdminUsers />} />
+                <Route path="packages" element={<AdminPackages />} />
+                <Route path="guides" element={<AdminGuides />} />
                 </Route>
           <Route path="*" element={<NotFound />} />
             </Routes>

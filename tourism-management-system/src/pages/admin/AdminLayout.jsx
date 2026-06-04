@@ -18,6 +18,8 @@ function AdminLayout() {
     { path: "/admin/hotels", icon: "hotel", label: "Hotels" },
     { path: "/admin/bookings", icon: "book_online", label: "Bookings" },
     { path: "/admin/users", icon: "group", label: "Users" },
+    { path: "/admin/packages", icon: "card_travel", label: "Packages" },
+    { path: "/admin/guides", icon: "tour", label: "Tour Guides" },
   ]
 
   const isActive = (path) => {

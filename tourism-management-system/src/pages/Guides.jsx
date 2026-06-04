@@ -85,7 +85,7 @@ function Guides() {
                     </div>
                   </div>
                   <div className="hotel-location">
-                    <span>📍</span> {guide.location}
+                    <span> </span> {guide.location}
                   </div>
                   <p className="hotel-description">
                     {guide.experience}
