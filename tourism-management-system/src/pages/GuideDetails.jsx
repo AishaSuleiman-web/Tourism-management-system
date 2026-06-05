@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import API_URL from '../config/api'
 
 function GuideDetails() {
   const { id } = useParams()
@@ -32,7 +33,7 @@ function GuideDetails() {
   const fetchGuide = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`http://localhost:5000/api/guides/${id}`)
+      const response = await fetch(`${API_URL}/api/guides/${id}`)
       const data = await response.json()
       if (data.success) {
         setGuide(data.guide)
@@ -74,7 +75,7 @@ function GuideDetails() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/guides/book', {
+      const response = await fetch(`${API_URL}/api/guides/book`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

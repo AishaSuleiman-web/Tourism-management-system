@@ -24,7 +24,7 @@ export const register = async (req, res) => {
       password,
       options: {
         data: { full_name: name },
-        emailRedirectTo: 'http://localhost:5173/login'
+        emailRedirectTo: 'https://majestic-kulfi-6fe8ce.netlify.app/login'
       }
     })
 
@@ -64,7 +64,7 @@ export const register = async (req, res) => {
         
         // Generate custom JWT token for email verification
         const token = generateEmailToken(user.id, email, name)
-        const verificationLink = `http://localhost:5000/api/auth/verify-email?token=${token}&redirect=http://localhost:5173/login`
+        const verificationLink = `https://tourism-management-system-5e63.onrender.com/api/auth/verify-email?token=${token}&redirect=https://majestic-kulfi-6fe8ce.netlify.app/login`
 
         const subject = 'Welcome to TourEase - Verify Your Email'
         const html = `
@@ -170,7 +170,7 @@ export const register = async (req, res) => {
 export const verifyEmail = async (req, res) => {
   try {
     const { token } = req.query
-    const redirectUrl = req.query.redirect || 'http://localhost:5173/login'
+    const redirectUrl = req.query.redirect || 'https://majestic-kulfi-6fe8ce.netlify.app/login'
 
     if (!token) {
       return res.redirect(`${redirectUrl}?error=Invalid verification link`)
@@ -336,7 +336,7 @@ export const forgotPassword = async (req, res) => {
     }
 
     const token = generatePasswordResetToken(userId, email)
-    const resetLink = `http://localhost:5173/reset-password?token=${token}`
+    const resetLink = `https://majestic-kulfi-6fe8ce.netlify.app/reset-password?token=${token}`
 
     const subject = 'Reset Your Password - TourEase'
     const html = `
@@ -367,7 +367,7 @@ export const forgotPassword = async (req, res) => {
                           <a href="${resetLink}" style="background-color: #3B82F6; color: white; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">Reset Password</a>
                         </td>
                       </tr>
-                    </tr>
+                    </table>
                     
                     <p>If the button doesn't work, copy and paste this link into your browser:</p>
                     <p style="background-color: #f4f4f4; padding: 10px; border-radius: 4px; word-break: break-all; font-size: 12px;">${resetLink}</p>

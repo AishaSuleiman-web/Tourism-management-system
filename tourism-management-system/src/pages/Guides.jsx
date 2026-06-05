@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import API_URL from '../config/api'
 
 function Guides() {
   const [guides, setGuides] = useState([])
@@ -12,7 +13,7 @@ function Guides() {
 
   const fetchGuides = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/guides')
+      const response = await fetch(`${API_URL}/api/guides`)
       const data = await response.json()
       if (data.success) {
         setGuides(data.guides)

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import API_URL from '../config/api'
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -30,7 +31,7 @@ function SearchBar() {
       setLoading(true)
       try {
         // Search Hotels
-        const hotelsRes = await fetch(`http://localhost:5000/api/hotels`)
+        const hotelsRes = await fetch(`${API_URL}/api/hotels`)
         const hotelsData = await hotelsRes.json()
         const filteredHotels = hotelsData.success ? hotelsData.hotels.filter(hotel => 
           hotel.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -38,7 +39,7 @@ function SearchBar() {
         ) : []
 
         // Search Guides
-        const guidesRes = await fetch(`http://localhost:5000/api/guides`)
+        const guidesRes = await fetch(`${API_URL}/api/guides`)
         const guidesData = await guidesRes.json()
         const filteredGuides = guidesData.success ? guidesData.guides.filter(guide => 
           guide.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -46,7 +47,7 @@ function SearchBar() {
         ) : []
 
         // Search Packages
-        const packagesRes = await fetch(`http://localhost:5000/api/packages`)
+        const packagesRes = await fetch(`${API_URL}/api/packages`)
         const packagesData = await packagesRes.json()
         const filteredPackages = packagesData.success ? packagesData.packages.filter(pkg => 
           pkg.destination?.toLowerCase().includes(searchTerm.toLowerCase())

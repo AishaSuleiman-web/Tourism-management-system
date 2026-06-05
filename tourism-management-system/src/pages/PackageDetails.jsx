@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import API_URL from '../config/api'
 
 function PackageDetails() {
   const { id } = useParams()
@@ -31,7 +32,7 @@ function PackageDetails() {
   const fetchPackage = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`http://localhost:5000/api/packages/${id}`)
+     const response = await fetch(`${API_URL}/api/packages/${id}`)
       const data = await response.json()
       if (data.success) {
         setPackageData(data.package)
@@ -73,7 +74,7 @@ function PackageDetails() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/packages/book', {
+      const response = await fetch(`${API_URL}/api/packages/book`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

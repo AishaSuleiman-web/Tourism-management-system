@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import API_URL from '../config/api' 
 
 function Packages() {
   const [packages, setPackages] = useState([])
@@ -18,7 +19,7 @@ function Packages() {
   const fetchPackages = async () => {
     setLoading(true)
     try {
-      const response = await fetch('http://localhost:5000/api/packages')
+      const response = await fetch(`${API_URL}/api/packages`)
       const data = await response.json()
       if (data.success) {
         const validPackages = data.packages.filter(pkg => pkg && typeof pkg === 'object')

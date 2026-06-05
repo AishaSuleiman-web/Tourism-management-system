@@ -1,17 +1,16 @@
-const API_URL = 'http://localhost:5000/api/hotels'
+import API_URL from '../config/api';
+
+const API_ENDPOINT = `${API_URL}/api/hotels`;
 
 export const getAllHotels = async () => {
   try {
-    const response = await fetch(API_URL)
+    const response = await fetch(API_ENDPOINT)  // CHANGE THIS: use API_ENDPOINT
     const data = await response.json()
-    
-    //console.log('Raw API response:', data)  // Debug line
     
     if (!response.ok) {
       throw new Error(data.error || 'Failed to fetch hotels')
     }
     
-    // Handle both response formats
     let hotels = []
     if (Array.isArray(data)) {
       hotels = data
@@ -33,14 +32,13 @@ export const getAllHotels = async () => {
 
 export const getHotelById = async (id) => {
   try {
-    const response = await fetch(`${API_URL}/${id}`)
+    const response = await fetch(`${API_ENDPOINT}/${id}`)  // CHANGE THIS: use API_ENDPOINT
     const data = await response.json()
     
     if (!response.ok) {
       throw new Error(data.error || 'Hotel not found')
     }
     
-    // Handle both response formats
     let hotel = null
     if (data.hotel) {
       hotel = data.hotel
@@ -65,7 +63,7 @@ export const bookHotel = async (bookingData) => {
   }
 
   try {
-    const response = await fetch(`${API_URL}/book`, {
+    const response = await fetch(`${API_ENDPOINT}/book`, {  // CHANGE THIS: use API_ENDPOINT
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -95,7 +93,7 @@ export const getUserBookings = async () => {
   }
 
   try {
-    const response = await fetch(`${API_URL}/my-bookings`, {
+    const response = await fetch(`${API_ENDPOINT}/my-bookings`, {  // CHANGE THIS: use API_ENDPOINT
       headers: {
         'Authorization': `Bearer ${token}`
       }
