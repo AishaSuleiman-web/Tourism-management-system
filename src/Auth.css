@@ -1,0 +1,94 @@
+/* Full page background */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid gold;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+  font-family: Arial, sans-serif;
+}
+
+/* Glass card */
+.auth-box {
+  width: 350px;
+  padding: 20px 30px 40px;
+  border-radius: 15px;
+
+  background: rgba(0, 30, 64);
+  backdrop-filter: blur(10px);
+
+  text-align: center;
+  color: white;
+
+  box-shadow: 0 10px 30px white;
+  position: relative;
+  top: -20px;
+}
+
+/* Logo styling */
+.auth-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Inputs */
+.input-group {
+  margin: 12px 0;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* Button */
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+
+  background: #001E40;
+  color: gold;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.auth-button:hover {
+  background: #003366;
+}
+
+/* Text links */
+.switch-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.switch-text a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+
