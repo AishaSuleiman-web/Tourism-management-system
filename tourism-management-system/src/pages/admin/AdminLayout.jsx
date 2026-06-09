@@ -30,7 +30,7 @@ function AdminLayout() {
 
   return (
     <div className="admin-layout">
-      {/* Desktop Sidebar */}
+      
       <aside className="admin-sidebar">
         <div className="admin-logo">
           <h1>TourEase</h1>
@@ -55,7 +55,7 @@ function AdminLayout() {
         </div>
       </aside>
 
-      {/* Mobile Header */}
+    
       <header className="admin-mobile-header">
         <button className="admin-mobile-menu-btn" onClick={() => setMobileMenuOpen(true)}>
           <span className="material-symbols-outlined">menu</span>
@@ -66,7 +66,7 @@ function AdminLayout() {
         </div>
       </header>
 
-      {/* Mobile Bottom Nav */}
+     
       <nav className="admin-bottom-nav">
         {navItems.map((item) => (
           <Link key={item.path} to={item.path} className={isActive(item.path) ? 'active' : ''}>
@@ -75,7 +75,7 @@ function AdminLayout() {
         ))}
       </nav>
 
-      {/* Mobile Drawer */}
+     
       {mobileMenuOpen && (
         <>
           <div className="admin-drawer-overlay" onClick={() => setMobileMenuOpen(false)}></div>
@@ -101,7 +101,7 @@ function AdminLayout() {
         </>
       )}
 
-      {/* Main Content */}
+      
       <main className="admin-main">
         <Outlet />
       </main>

@@ -20,34 +20,34 @@ function AdminDashboard() {
     setLoading(true)
 
     try {
-      // Get total hotels
+      
       const { count: hotelsCount } = await supabase
         .from('hotels')
         .select('*', { count: 'exact', head: true })
 
-      // Get total guides
+      
       const { count: guidesCount } = await supabase
         .from('guides')
         .select('*', { count: 'exact', head: true })
 
-      // Get total packages
+      
       const { count: packagesCount } = await supabase
         .from('travel_packages')
         .select('*', { count: 'exact', head: true })
 
-      // Get total users
+      
       const { count: usersCount } = await supabase
         .from('profiles')
         .select('*', { count: 'exact', head: true })
 
-      // Get all bookings from different tables
+      
       const [hotelBookings, guideBookings, packageBookings] = await Promise.all([
         supabase.from('bookings').select('*, hotels(name), profiles(name)').order('created_at', { ascending: false }).limit(3),
         supabase.from('guide_bookings').select('*, guides(name), profiles(name)').order('created_at', { ascending: false }).limit(3),
         supabase.from('package_bookings').select('*, travel_packages(destination), profiles(name)').order('created_at', { ascending: false }).limit(3)
       ])
 
-      // Combine all bookings with type labels
+      
       const allBookings = [
         ...(hotelBookings.data || []).map(b => ({
           ...b,
@@ -75,10 +75,10 @@ function AdminDashboard() {
         }))
       ]
 
-      // Sort all bookings by created_at
+     
       allBookings.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
       
-      // Get total count from all booking tables
+
       const [{ count: hotelCount }, { count: guideCount }, { count: packageCount }] = await Promise.all([
         supabase.from('bookings').select('*', { count: 'exact', head: true }),
         supabase.from('guide_bookings').select('*', { count: 'exact', head: true }),

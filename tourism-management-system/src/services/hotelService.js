@@ -4,7 +4,7 @@ const API_ENDPOINT = `${API_URL}/api/hotels`;
 
 export const getAllHotels = async () => {
   try {
-    const response = await fetch(API_ENDPOINT)  // CHANGE THIS: use API_ENDPOINT
+    const response = await fetch(API_ENDPOINT)  
     const data = await response.json()
     
     if (!response.ok) {
@@ -32,7 +32,7 @@ export const getAllHotels = async () => {
 
 export const getHotelById = async (id) => {
   try {
-    const response = await fetch(`${API_ENDPOINT}/${id}`)  // CHANGE THIS: use API_ENDPOINT
+    const response = await fetch(`${API_ENDPOINT}/${id}`)  
     const data = await response.json()
     
     if (!response.ok) {
@@ -63,7 +63,7 @@ export const bookHotel = async (bookingData) => {
   }
 
   try {
-    const response = await fetch(`${API_ENDPOINT}/book`, {  // CHANGE THIS: use API_ENDPOINT
+    const response = await fetch(`${API_ENDPOINT}/book`, { 
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ export const getUserBookings = async () => {
   }
 
   try {
-    const response = await fetch(`${API_ENDPOINT}/my-bookings`, {  // CHANGE THIS: use API_ENDPOINT
+    const response = await fetch(`${API_ENDPOINT}/my-bookings`, { 
       headers: {
         'Authorization': `Bearer ${token}`
       }

@@ -30,7 +30,6 @@ function SearchBar() {
 
       setLoading(true)
       try {
-        // Search Hotels
         const hotelsRes = await fetch(`${API_URL}/api/hotels`)
         const hotelsData = await hotelsRes.json()
         const filteredHotels = hotelsData.success ? hotelsData.hotels.filter(hotel => 
@@ -38,7 +37,7 @@ function SearchBar() {
           hotel.location?.toLowerCase().includes(searchTerm.toLowerCase())
         ) : []
 
-        // Search Guides
+        
         const guidesRes = await fetch(`${API_URL}/api/guides`)
         const guidesData = await guidesRes.json()
         const filteredGuides = guidesData.success ? guidesData.guides.filter(guide => 
@@ -46,7 +45,7 @@ function SearchBar() {
           guide.location?.toLowerCase().includes(searchTerm.toLowerCase())
         ) : []
 
-        // Search Packages
+    
         const packagesRes = await fetch(`${API_URL}/api/packages`)
         const packagesData = await packagesRes.json()
         const filteredPackages = packagesData.success ? packagesData.packages.filter(pkg => 

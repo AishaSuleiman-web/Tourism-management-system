@@ -1,6 +1,5 @@
 import { supabase } from '../config/supabaseClient.js'
 
-// GET ALL PACKAGES
 export const getAllPackages = async (req, res) => {
   try {
     console.log('Fetching packages from Supabase...')
@@ -19,7 +18,6 @@ export const getAllPackages = async (req, res) => {
   }
 }
 
-// GET SINGLE PACKAGE BY ID
 export const getPackageById = async (req, res) => {
   try {
     const { id } = req.params
@@ -83,7 +81,6 @@ export const bookPackage = async (req, res) => {
   }
 }
 
-// GET USER'S PACKAGE BOOKINGS
 export const getUserPackageBookings = async (req, res) => {
   try {
     const { data, error } = await supabase

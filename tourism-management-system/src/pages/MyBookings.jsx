@@ -32,7 +32,7 @@ function MyBookings() {
         return
       }
 
-      // Fetch Hotel Bookings
+      
       const { data: hotelBookings, error: hotelError } = await supabase
         .from('bookings')
         .select(`
@@ -81,7 +81,7 @@ function MyBookings() {
         detail_link: `/guide/${booking.guide_id}`
       }))
 
-      // Fetch Package Bookings
+      
       const { data: packageBookings, error: packageError } = await supabase
         .from('package_bookings')
         .select(`
@@ -105,7 +105,7 @@ function MyBookings() {
         detail_link: `/packages/${booking.package_id}`
       }))
 
-      // Combine all bookings
+     
       const all = [...hotelBookingsWithType, ...guideBookingsWithType, ...packageBookingsWithType]
       all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
       

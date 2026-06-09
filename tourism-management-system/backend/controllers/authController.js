@@ -18,7 +18,6 @@ export const register = async (req, res) => {
       return res.status(400).json({ error: 'Password must be at least 6 characters' })
     }
 
-    // Try Supabase Auth first
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -28,12 +27,10 @@ export const register = async (req, res) => {
       }
     })
 
-    // Check for rate limit error
     if (error && error.message && error.message.toLowerCase().includes('rate limit')) {
       console.log('Supabase rate limit reached, falling back to admin API')
       
       try {
-        // Use admin API to create user directly (bypasses rate limit)
         const { data: adminData, error: adminError } = await supabaseAdmin.auth.admin.createUser({
           email: email,
           password: password,
@@ -48,7 +45,6 @@ export const register = async (req, res) => {
 
         const user = adminData.user
         
-        // CREATE PROFILE IMMEDIATELY WITH EMAIL
         const { error: profileError } = await supabase
           .from('profiles')
           .insert([{ 
@@ -62,7 +58,6 @@ export const register = async (req, res) => {
           console.error('Profile creation error in fallback:', profileError)
         }
         
-        // Generate custom JWT token for email verification
         const token = generateEmailToken(user.id, email, name)
         const verificationLink = `https://tourism-management-system-5e63.onrender.com/api/auth/verify-email?token=${token}&redirect=https://majestic-kulfi-6fe8ce.netlify.app/login`
 
@@ -140,7 +135,6 @@ export const register = async (req, res) => {
       return res.status(400).json({ error: error.message })
     }
 
-    // CREATE PROFILE FOR REGULAR SUPABASE REGISTRATION (WITH EMAIL)
     if (data.user) {
       const { error: profileError } = await supabase
         .from('profiles')
@@ -166,7 +160,6 @@ export const register = async (req, res) => {
   }
 }
 
-// VERIFY EMAIL - Creates profile ONLY after email is verified (if not already exists)
 export const verifyEmail = async (req, res) => {
   try {
     const { token } = req.query
@@ -182,14 +175,12 @@ export const verifyEmail = async (req, res) => {
       return res.redirect(`${redirectUrl}?error=Invalid or expired verification link`)
     }
 
-    // Check if profile already exists (to avoid duplicate)
     const { data: existingProfile } = await supabase
       .from('profiles')
       .select('id')
       .eq('id', decoded.id)
       .maybeSingle()
 
-    // Update user's email confirmation status in auth.users
     const { error: updateError } = await supabaseAdmin.auth.admin.updateUserById(decoded.id, {
       email_confirm: true
     })
@@ -199,7 +190,6 @@ export const verifyEmail = async (req, res) => {
       return res.redirect(`${redirectUrl}?error=Verification failed. Please try again.`)
     }
 
-    // Create profile ONLY AFTER email is verified (if not already exists)
     if (!existingProfile) {
       const { error: profileError } = await supabase
         .from('profiles')
@@ -222,7 +212,6 @@ export const verifyEmail = async (req, res) => {
   }
 }
 
-// LOGIN - Only allows verified users
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -244,7 +233,6 @@ export const login = async (req, res) => {
       return res.status(401).json({ error: 'Please verify your email before logging in. Check your inbox.' })
     }
 
-    // Fetch is_admin from profiles table
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('is_admin')
@@ -269,7 +257,6 @@ export const login = async (req, res) => {
   }
 }
 
-// GET PROFILE (includes is_admin)
 export const getProfile = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1]
@@ -299,7 +286,6 @@ export const getProfile = async (req, res) => {
   }
 }
 
-// FORGOT PASSWORD - Uses email column in profiles table
 export const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body
@@ -311,7 +297,6 @@ export const forgotPassword = async (req, res) => {
     let userName = null
     
     try {
-      // Query profiles table using email column
       const { data: profileData, error: profileError } = await supabase
         .from('profiles')
         .select('id, name')
@@ -406,7 +391,6 @@ export const forgotPassword = async (req, res) => {
   }
 }
 
-// RESET PASSWORD
 export const resetPassword = async (req, res) => {
   try {
     const { password, token } = req.body
@@ -416,7 +400,7 @@ export const resetPassword = async (req, res) => {
       return res.status(400).json({ error: 'Password must be at least 6 characters' })
     }
 
-    // Try custom JWT token first (from nodemailer fallback)
+   
     const decoded = verifyToken(token)
     if (decoded && decoded.type === 'password_reset') {
       console.log('Updating password via admin API for user:', decoded.id)
@@ -433,7 +417,6 @@ export const resetPassword = async (req, res) => {
       return res.json({ success: true, message: 'Password updated successfully' })
     }
 
-    // Try Supabase session token (from Supabase email link)
     const { error: sessionError } = await supabase.auth.setSession({
       access_token: token,
       refresh_token: token

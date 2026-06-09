@@ -20,7 +20,6 @@ function AdminBookings() {
   const fetchAllBookings = async () => {
     setLoading(true)
     try {
-      // Fetch Hotel Bookings
       const { data: hotels, error: hotelError } = await supabase
         .from('bookings')
         .select(`
@@ -39,7 +38,6 @@ function AdminBookings() {
         item_location: booking.hotels?.location || ''
       }))
 
-      // Fetch Guide Bookings
       const { data: guides, error: guideError } = await supabase
         .from('guide_bookings')
         .select(`
@@ -62,7 +60,6 @@ function AdminBookings() {
         duration: booking.duration_days
       }))
 
-      // Fetch Package Bookings
       const { data: packages, error: packageError } = await supabase
         .from('package_bookings')
         .select(`

@@ -15,7 +15,6 @@ const createTransporter = () => {
   })
 }
 
-// Send any email via nodemailer (general purpose)
 export const sendEmailViaNodemailer = async (to, subject, html) => {
   try {
     const transporter = createTransporter()

@@ -16,7 +16,7 @@ function AdminUsers() {
     setError(null)
     
     try {
-      // Direct fetch from profiles
+      
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
@@ -24,7 +24,7 @@ function AdminUsers() {
 
       if (error) throw error
 
-      //console.log('Raw profiles data:', data)
+     
       setUsers(data || [])
     } catch (err) {
       console.error('Error fetching users:', err)

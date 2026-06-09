@@ -93,7 +93,7 @@ function Hotels() {
 
   return (
     <div className="hotels-container">
-      {/* Hero Section with Search Bar */}
+
       <section className="hotels-hero">
         <div className="hotels-hero-bg" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1566073771259-6a8506099945)' }}></div>
         <div className="hotels-hero-overlay"></div>
@@ -163,7 +163,6 @@ function Hotels() {
         </div>
       </section>
 
-      {/* Results Info */}
       <div className="results-info">
         <p className="results-count">
           {filteredHotels.length} hotel{filteredHotels.length !== 1 ? 's' : ''} found
@@ -171,7 +170,7 @@ function Hotels() {
         </p>
       </div>
 
-      {/* Hotel Grid */}
+
       <div className="hotels-grid-section">
         {filteredHotels.length === 0 ? (
           <div className="empty-state">

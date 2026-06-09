@@ -1,6 +1,5 @@
 import { supabase } from '../config/supabaseClient.js'
 
-// GET ALL GUIDES
 export const getAllGuides = async (req, res) => {
   try {
     console.log('Fetching guides from Supabase...')
@@ -24,7 +23,6 @@ export const getAllGuides = async (req, res) => {
   }
 }
 
-// GET SINGLE GUIDE BY ID
 export const getGuideById = async (req, res) => {
   try {
     const { id } = req.params
@@ -42,7 +40,6 @@ export const getGuideById = async (req, res) => {
   }
 }
 
-// BOOK A GUIDE
 export const bookGuide = async (req, res) => {
   try {
     const { guide_id, tour_date, group_size, duration_days, total_price } = req.body
@@ -52,7 +49,6 @@ export const bookGuide = async (req, res) => {
       return res.status(400).json({ error: 'Booking date cannot be in the past' })
     }
 
-    // Check if guide exists
     const { data: guide, error: guideError } = await supabase
       .from('guides')
       .select('*')
@@ -63,7 +59,6 @@ export const bookGuide = async (req, res) => {
       return res.status(404).json({ error: 'Guide not found' })
     }
 
-    // Create booking
     const { data: booking, error: bookingError } = await supabase
       .from('guide_bookings')
       .insert([{
@@ -91,7 +86,6 @@ export const bookGuide = async (req, res) => {
   }
 }
 
-// GET USER'S GUIDE BOOKINGS
 export const getUserGuideBookings = async (req, res) => {
   try {
     console.log('Getting guide bookings for user:', req.user?.id)

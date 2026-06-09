@@ -168,7 +168,7 @@ function Packages() {
         </div>
       </section>
 
-      {/* Results Info */}
+     
       <div className="results-info">
         <p className="results-count">
           {filteredPackages.length} package{filteredPackages.length !== 1 ? 's' : ''} found
@@ -176,7 +176,7 @@ function Packages() {
         </p>
       </div>
 
-      {/* Packages Grid */}
+     
       <div className="hotels-grid-section">
         {filteredPackages.length === 0 ? (
           <div className="empty-state">

@@ -1,14 +1,9 @@
-/* ========================================
-   ORIGINAL STYLES FROM YOUR BRANCH
-   ======================================== */
-
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -235,12 +230,10 @@
   margin-bottom: 8px;
 }
 
-/* Tablet */
 @media (max-width: 1024px) {
   .navbar {
     padding: 16px 20px;
   }
-  
   .nav-links {
     gap: 20px;
   }
@@ -250,11 +243,9 @@
   .nav-links {
     display: none;
   }
-  
   .auth-buttons {
     display: none;
   }
-  
   .mobile-menu-btn {
     display: block;
   }
@@ -264,26 +255,21 @@
   .navbar {
     padding: 12px 16px;
   }
-  
   .logo {
     font-size: 20px;
   }
-  
   .mobile-menu-btn {
     font-size: 24px;
   }
-  
   .mobile-menu {
     top: 60px;
     padding: 16px;
     gap: 12px;
   }
-  
   .mobile-menu a {
     font-size: 14px;
     padding: 8px 0;
   }
-  
   .mobile-menu .signup-btn,
   .mobile-menu .login-btn,
   .mobile-menu .logout-btn {
@@ -292,7 +278,6 @@
   }
 }
 
-/* Footer Styles */
 .footer {
   width: 100%;
   background-color: black;
@@ -369,20 +354,16 @@
   .footer {
     padding: 40px 20px 20px 20px;
   }
-  
   .footer-container {
     flex-direction: column;
     gap: 32px;
   }
-  
   .footer-logo-section {
     text-align: center;
   }
-  
   .footer-section {
     text-align: center;
   }
-  
   .footer-links {
     align-items: center;
   }
@@ -392,25 +373,20 @@
   .footer {
     padding: 30px 16px 16px 16px;
   }
-  
   .footer-logo-section h2 {
     font-size: 20px;
   }
-  
   .footer-description {
     font-size: 12px;
   }
-  
   .footer-section h3 {
     font-size: 14px;
   }
-  
   .footer-links a {
     font-size: 12px;
   }
 }
 
-/* Hotel Card Styles */
 .hotel-card {
   display: flex;
   background-color: white;
@@ -557,11 +533,9 @@
     width: 220px;
     height: 180px;
   }
-  
   .hotel-card-header h3 {
     font-size: 18px;
   }
-  
   .hotel-price {
     font-size: 20px;
   }
@@ -571,7 +545,6 @@
   .hotel-card {
     flex-direction: column;
   }
-  
   .hotel-card-image {
     width: 100%;
     height: 200px;
@@ -583,28 +556,23 @@
   .hotel-card-image {
     height: 160px;
   }
-  
   .hotel-card-content {
     padding: 16px;
   }
-  
   .hotel-card-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
   .hotel-price-section {
     flex-direction: column;
     align-items: flex-start;
   }
-  
   .book-now-btn {
     width: 100%;
     text-align: center;
   }
 }
 
-/* Hotels Page Styles */
 .hotels-container {
   width: 100%;
   background-color: #f8f9ff;
@@ -875,7 +843,6 @@
   .hotels-hero-title {
     font-size: 36px;
   }
-  
   .results-info,
   .hotels-grid-section {
     max-width: 100%;
@@ -886,30 +853,24 @@
   .hotels-hero {
     padding: 40px 16px;
   }
-  
   .hotels-hero-title {
     font-size: 28px;
     margin-bottom: 20px;
   }
-  
   .search-form {
     padding: 16px;
   }
-  
   .search-input {
     padding: 12px 14px;
     font-size: 14px;
   }
-  
   .search-btn {
     padding: 12px 16px;
     font-size: 14px;
   }
-  
   .results-info {
     margin-top: 20px;
   }
-  
   .hotels-grid-section {
     padding: 20px 16px 60px;
   }
@@ -919,38 +880,30 @@
   .hotels-hero-title {
     font-size: 24px;
   }
-  
   .search-form-row {
     flex-direction: column;
   }
-  
   .search-input-group {
     min-width: 100%;
   }
-  
   .search-btn-group {
     min-width: 100%;
   }
-  
   .filter-toggle-btn {
     align-self: flex-start;
   }
-  
   .price-filter-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
   .results-count {
     font-size: 14px;
   }
-  
   .empty-state-text {
     font-size: 16px;
   }
 }
 
-/* Bookings Page Styles */
 .bookings-container {
   width: 100%;
   background-color: #f8f9ff;
@@ -1230,7 +1183,6 @@
   .bookings-main {
     padding: 80px 30px 100px 30px;
   }
-  
   .bookings-grid {
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     gap: 24px;
@@ -1241,51 +1193,40 @@
   .bookings-main {
     padding: 80px 20px 80px 20px;
   }
-  
   .bookings-title {
     font-size: 28px;
   }
-  
   .bookings-subtitle {
     font-size: 14px;
   }
-  
   .bookings-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
   .booking-card-inner {
     flex-direction: column;
   }
-  
   .booking-image {
     width: 100%;
     height: 180px;
   }
-  
   .booking-meta {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
-  
   .booking-date {
     text-align: left;
   }
-  
   .booking-price {
     text-align: left;
   }
-  
   .booking-price-value {
     font-size: 24px;
   }
-  
   .empty-state-title {
     font-size: 24px;
   }
-  
   .empty-state-text {
     font-size: 14px;
   }
@@ -1295,52 +1236,41 @@
   .bookings-main {
     padding: 70px 16px 60px 16px;
   }
-  
   .bookings-title {
     font-size: 24px;
   }
-  
   .booking-image {
     height: 150px;
   }
-  
   .booking-content {
     padding: 16px;
   }
-  
   .booking-hotel-name {
     font-size: 18px;
   }
-  
   .booking-dates {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  
   .booking-price-value {
     font-size: 20px;
   }
-  
   .empty-state-icon {
     width: 80px;
     height: 80px;
   }
-  
   .empty-state-icon span {
     font-size: 40px;
   }
-  
   .empty-state-title {
     font-size: 20px;
   }
-  
   .empty-state-btn {
     padding: 12px 24px;
     font-size: 14px;
   }
 }
 
-/* Register Page Styles */
 .register-container {
   display: flex;
   justify-content: center;
@@ -1489,17 +1419,14 @@
     margin: 30px auto;
     padding: 25px;
   }
-  
   .register-title {
     font-size: 24px;
     margin-bottom: 20px;
   }
-  
   .form-input {
     padding: 10px;
     font-size: 14px;
   }
-  
   .register-btn {
     padding: 10px;
     font-size: 14px;
@@ -1510,40 +1437,32 @@
   .register-container {
     padding: 16px;
   }
-  
   .register-card {
     margin: 20px auto;
     padding: 20px;
   }
-  
   .register-title {
     font-size: 22px;
     margin-bottom: 16px;
   }
-  
   .form-group {
     margin-bottom: 12px;
   }
-  
   .form-label {
     font-size: 14px;
   }
-  
   .form-input {
     padding: 8px 12px;
     font-size: 14px;
   }
-  
   .error-text,
   .success-text {
     font-size: 11px;
   }
-  
   .register-btn {
     padding: 10px;
     font-size: 14px;
   }
-  
   .register-footer {
     font-size: 14px;
     margin-top: 16px;
@@ -1554,21 +1473,17 @@
   .register-card {
     padding: 16px;
   }
-  
   .register-title {
     font-size: 20px;
   }
-  
   .form-input {
     padding: 8px 10px;
   }
-  
   .register-btn {
     padding: 8px;
   }
 }
 
-/* Login Page Styles */
 .login-container {
   display: flex;
   justify-content: center;
@@ -1731,18 +1646,15 @@
     margin: 30px auto;
     padding: 25px;
   }
-  
   .login-title,
   .forgot-password-title {
     font-size: 24px;
     margin-bottom: 20px;
   }
-  
   .login-input {
     padding: 10px;
     font-size: 14px;
   }
-  
   .login-btn {
     padding: 10px;
     font-size: 14px;
@@ -1753,40 +1665,32 @@
   .login-container {
     padding: 16px;
   }
-  
   .login-card {
     margin: 20px auto;
     padding: 20px;
   }
-  
   .login-title,
   .forgot-password-title {
     font-size: 22px;
     margin-bottom: 16px;
   }
-  
   .login-form-group {
     margin-bottom: 12px;
   }
-  
   .login-label {
     font-size: 14px;
   }
-  
   .login-input {
     padding: 8px 12px;
     font-size: 14px;
   }
-  
   .login-error-text {
     font-size: 11px;
   }
-  
   .login-btn {
     padding: 10px;
     font-size: 14px;
   }
-  
   .login-footer,
   .login-forgot-btn,
   .back-to-login-btn {
@@ -1798,109 +1702,18 @@
   .login-card {
     padding: 16px;
   }
-  
   .login-title,
   .forgot-password-title {
     font-size: 20px;
   }
-  
   .login-input {
     padding: 8px 10px;
   }
-  
   .login-btn {
     padding: 8px;
   }
 }
 
-
-/* Footer Styles - Consistent with Black Navbar */
-.footer {
-  width: 100%;
-  background-color: black;
-  color: #9ca3af;
-  padding: 60px 40px 30px 40px;
-  margin-top: auto;
-  box-sizing: border-box;
-}
-
-.footer-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 40px;
-  row-gap: 40px;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 150px;
-}
-
-.footer-section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 16px;
-}
-
-.footer-section p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #9ca3af;
-}
-
-.footer-link {
-  color: #9ca3af;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.footer-link:hover {
-  color: #7d5800;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .footer {
-    padding: 40px 20px 20px 20px;
-  }
-  
-  .footer-container {
-    flex-direction: column;
-    gap: 32px;
-    text-align: center;
-  }
-  
-  .footer-section {
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer {
-    padding: 30px 16px 16px 16px;
-  }
-  
-  .footer-section h2 {
-    font-size: 20px;
-  }
-  
-  .footer-link {
-    font-size: 12px;
-  }
-}
-
-/* ========================================
-   LEAD'S PAGE STYLES (Home, About, Contact, NotFound, etc.)
-   ======================================== */
-
-/* Layout Classes */
 .app {
   min-height: 100vh;
   display: flex;
@@ -1911,7 +1724,6 @@
   flex: 1;
 }
 
-/* Hero Section */
 .hero {
   height: 65vh;
   width: 100%;
@@ -1941,7 +1753,6 @@
   margin-bottom: 30px;
 }
 
-/* Search Component - Fixed */
 .search {
   position: relative;
   width: 100%;
@@ -1985,7 +1796,6 @@
   background-color: #002d5a;
 }
 
-/* Categories Section */
 .categories {
   display: flex;
   gap: 20px;
@@ -2024,7 +1834,6 @@
   object-fit: contain;
 }
 
-/* About Page */
 .about {
   width: 100%;
   max-width: 700px;
@@ -2057,7 +1866,6 @@
   text-align: center;
 }
 
-/* Contact Page */
 .contact {
   max-width: 650px;
   margin: 0px auto;
@@ -2075,7 +1883,6 @@
   margin-bottom: 16px;
 }
 
-/* Error Page */
 .error-page {
   text-align: center;
   padding: 80px 20px;
@@ -2111,7 +1918,6 @@
   background-color: #002d5a;
 }
 
-/* Button Container */
 .button-container {
   display: flex;
   justify-content: center;
@@ -2132,48 +1938,38 @@
   background-color: #002d5a;
 }
 
-/* Responsive Lead Styles */
 @media (max-width: 768px) {
   .hero {
     height: 50vh;
   }
-  
   .hero-content h1 {
     font-size: 28px;
   }
-  
   .hero-content p {
     font-size: 16px;
   }
-  
   .search-input {
     padding: 14px 18px;
     padding-right: 120px;
     font-size: 14px;
   }
-  
   .search-button {
     padding: 0 18px;
     font-size: 14px;
   }
-  
   .category-card {
     width: 150px;
     padding: 15px;
   }
-  
   .section {
     padding: 24px;
   }
-  
   .about {
     padding: 60px 16px;
   }
-  
   .contact {
     padding: 60px 16px;
   }
-  
   .error-page h1 {
     font-size: 80px;
   }
@@ -2184,41 +1980,31 @@
     width: 130px;
     padding: 12px;
   }
-  
   .categories img {
     width: 40px;
     height: 40px;
   }
-  
   .categories p {
     font-size: 12px;
   }
-  
   .search-input {
     padding-right: 100px;
   }
-  
   .search-button {
     padding: 0 12px;
     font-size: 12px;
   }
-  
   .home-button,
   .contact-button {
     padding: 12px 24px;
   }
 }
 
-/* ========================================
-   ADMIN PANEL STYLES (WHITE/BLUE THEME)
-   ======================================== */
-
 .admin-layout {
   min-height: 100vh;
   background-color: #f8f9ff;
 }
 
-/* Desktop Sidebar */
 .admin-sidebar {
   position: fixed;
   left: 0;
@@ -2302,7 +2088,6 @@
   color: #3B82F6;
 }
 
-/* Mobile Header */
 .admin-mobile-header {
   display: none;
   justify-content: space-between;
@@ -2346,7 +2131,6 @@
   object-fit: cover;
 }
 
-/* Mobile Bottom Navigation */
 .admin-bottom-nav {
   display: none;
   position: fixed;
@@ -2381,7 +2165,6 @@
   font-size: 24px;
 }
 
-/* Mobile Drawer */
 .admin-mobile-drawer {
   position: fixed;
   left: 0;
@@ -2466,7 +2249,6 @@
   color: #3B82F6;
 }
 
-/* Main Content */
 .admin-main {
   margin-left: 280px;
   padding: 32px;
@@ -2474,7 +2256,6 @@
   background-color: #f8f9ff;
 }
 
-/* Page Header */
 .admin-page-header {
   display: flex;
   justify-content: space-between;
@@ -2495,7 +2276,6 @@
   margin-top: 4px;
 }
 
-/* Stats Cards */
 .admin-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2532,7 +2312,6 @@
   color: #1f2937;
 }
 
-/* Tables */
 .admin-table-card {
   background-color: white;
   border-radius: 12px;
@@ -2582,7 +2361,6 @@
   background-color: #f9fafb;
 }
 
-/* Status Badges */
 .admin-status-confirmed {
   background-color: #dbeafe;
   color: #1e40af;
@@ -2613,7 +2391,6 @@
   display: inline-block;
 }
 
-/* Action Buttons */
 .admin-action-btn {
   background: none;
   border: none;
@@ -2634,7 +2411,6 @@
   color: #dc2626;
 }
 
-/* Search Bar */
 .admin-search-bar {
   margin-bottom: 20px;
 }
@@ -2655,7 +2431,6 @@
   ring: 2px solid rgba(59,130,246,0.2);
 }
 
-/* Add Button */
 .admin-add-btn {
   background-color: #3B82F6;
   color: white;
@@ -2674,7 +2449,6 @@
   background-color: #2563EB;
 }
 
-/* Modal */
 .admin-modal-overlay {
   position: fixed;
   inset: 0;
@@ -2756,46 +2530,37 @@
   background-color: #2563EB;
 }
 
-/* Admin Responsive */
 @media (max-width: 768px) {
   .admin-sidebar {
     display: none;
   }
-  
   .admin-mobile-header {
     display: flex;
   }
-  
   .admin-bottom-nav {
     display: flex;
   }
-  
   .admin-main {
     margin-left: 0;
     padding: 80px 16px 80px 16px;
   }
-  
   .admin-stats-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  
   .admin-table th,
   .admin-table td {
     padding: 12px 16px;
   }
-  
   .admin-page-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
   .admin-search-input {
     max-width: 100%;
   }
 }
 
-/* Admin additional styles */
 .admin-loading {
   text-align: center;
   padding: 40px;
@@ -2942,7 +2707,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Override any default font issues */
 .admin-table,
 .admin-table th,
 .admin-table td,
@@ -2956,6 +2720,7 @@
 button {
   font-family: 'Inter', sans-serif;
 }
+
 .admin-tabs {
   display: flex;
   gap: 8px;
@@ -2986,20 +2751,12 @@ button {
   color: #f0bf65;
 }
 
-
-
-/* ========================================
-   TRAVEL PACKAGES PAGE STYLES
-   ======================================== */
-
-/* Packages Container */
 .packages-container {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
 }
 
-/* Hero Section */
 .packages-hero {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 80px 20px;
@@ -3050,7 +2807,6 @@ button {
   color: #f0bf65;
 }
 
-/* Grid Section */
 .packages-grid-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -3063,7 +2819,6 @@ button {
   gap: 30px;
 }
 
-/* Package Card */
 .package-card {
   background: white;
   border-radius: 20px;
@@ -3080,7 +2835,6 @@ button {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Package Image */
 .package-image {
   position: relative;
   height: 240px;
@@ -3116,7 +2870,6 @@ button {
   font-weight: normal;
 }
 
-/* Package Content */
 .package-content {
   padding: 20px;
 }
@@ -3228,7 +2981,6 @@ button {
   color: #1a1a2e;
 }
 
-/* Loading State */
 .packages-loading {
   display: flex;
   flex-direction: column;
@@ -3247,17 +2999,11 @@ button {
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .packages-loading p {
   margin-top: 20px;
   color: #666;
 }
 
-/* Error State */
 .packages-error {
   display: flex;
   flex-direction: column;
@@ -3288,7 +3034,6 @@ button {
   background: #e6a800;
 }
 
-/* Empty State */
 .packages-empty {
   text-align: center;
   padding: 80px 20px;
@@ -3309,33 +3054,26 @@ button {
   color: #666;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .packages-hero h1 {
     font-size: 32px;
   }
-  
   .packages-hero p {
     font-size: 16px;
   }
-  
   .packages-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
   .package-image {
     height: 200px;
   }
-  
   .package-header h3 {
     font-size: 18px;
   }
-  
   .package-footer .price {
     font-size: 20px;
   }
-  
   .book-btn {
     padding: 8px 16px;
     font-size: 14px;
@@ -3346,60 +3084,14 @@ button {
   .packages-grid-section {
     padding: 40px 16px;
   }
-  
   .package-content {
     padding: 16px;
   }
-  
   .package-header h3 {
     font-size: 16px;
   }
 }
 
-.search {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.search-input {
-  width: 100%;
-  padding: 16px 20px;
-  padding-right: 140px;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  outline: none;
-  box-sizing: border-box;
-  background-color: white;
-}
-
-.search-input::placeholder {
-  color: #999;
-  font-size: 14px;
-}
-
-.search-button {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  bottom: 5px;
-  padding: 0 25px;
-  border: none;
-  border-radius: 50px;
-  background-color: #001E40;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.search-button:hover {
-  background-color: #002d5a;
-}
-
-/* Add these for dropdown - use your original colors */
 .search-results-dropdown {
   position: absolute;
   top: 100%;

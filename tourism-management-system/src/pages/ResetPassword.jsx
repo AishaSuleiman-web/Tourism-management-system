@@ -12,11 +12,11 @@ function ResetPassword() {
   const location = useLocation()
 
   useEffect(() => {
-    // Extract token from URL hash (Supabase uses hash fragment)
+    
     const hashParams = new URLSearchParams(location.hash.substring(1))
     let token = hashParams.get('access_token')
     
-    // Also check query params for custom token (nodemailer fallback)
+    
     const queryParams = new URLSearchParams(location.search)
     const queryToken = queryParams.get('token')
     

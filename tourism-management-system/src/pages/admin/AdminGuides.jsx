@@ -50,7 +50,7 @@ function AdminGuides() {
       if (bookingsError) throw bookingsError
 
       if (bookings && bookings.length > 0) {
-        // Fetch guide names
+       
         const guideIds = [...new Set(bookings.map(b => b.guide_id))]
         const { data: guides, error: guidesError } = await supabase
           .from('guides')
@@ -59,7 +59,7 @@ function AdminGuides() {
 
         if (guidesError) throw guidesError
 
-        // Fetch user names
+
         const userIds = [...new Set(bookings.map(b => b.user_id))]
         const { data: profiles, error: profilesError } = await supabase
           .from('profiles')

@@ -245,7 +245,7 @@ function AdminPackages() {
         </div>
       </div>
 
-      {/* Modal */}
+      
       {showModal && (
         <>
           <div className="admin-modal-overlay" onClick={() => setShowModal(false)}></div>

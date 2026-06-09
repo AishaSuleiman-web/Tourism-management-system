@@ -16,7 +16,7 @@ function Login() {
   const navigate = useNavigate()
   const { login } = useAuth()
 
-  // Get verification status from URL
+  
   const verified = searchParams.get('verified')
   const error = searchParams.get('error')
 
@@ -80,21 +80,21 @@ function Login() {
           <>
             <h2 className="login-title">Welcome Back</h2>
             
-            {/* Verification success message */}
+           
             {verified && (
               <div className="login-success">
                 Email verified successfully! You can now log in.
               </div>
             )}
             
-            {/* Verification error message */}
+           
             {error && (
               <div className="login-error">
                 {error}
               </div>
             )}
             
-            {/* Login error message */}
+            
             {serverError && <div className="login-error">{serverError}</div>}
             
             <form className="login-form" onSubmit={handleLogin}>
