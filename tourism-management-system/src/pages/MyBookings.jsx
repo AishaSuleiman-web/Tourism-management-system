@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../config/supabaseClient'
 import { formatCurrency } from '../utils/formatCurrency'
+import { Link } from 'react-router-dom'
 
 function MyBookings() {
   const [allBookings, setAllBookings] = useState([])
@@ -249,9 +250,9 @@ function MyBookings() {
             <p className="empty-state-text">
               Start your journey by exploring our handpicked luxury stays and curated Nigerian experiences.
             </p>
-            <a href="/hotels" className="empty-state-btn">
+            <Link to="/hotels" className="empty-state-btn">
               Browse Hotels
-            </a>
+            </Link>
           </div>
         ) : (
           <div className="bookings-grid">

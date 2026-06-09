@@ -1,9 +1,11 @@
-const API_URL = 'http://localhost:5000/api/auth'
+import API_URL from '../config/api';
+
+const API_ENDPOINT = `${API_URL}/api/auth`;
 
 // Register user
 export const registerUser = async (userData) => {
   try {
-    const response = await fetch(`${API_URL}/register`, {
+    const response = await fetch(`${API_ENDPOINT}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
@@ -19,10 +21,9 @@ export const registerUser = async (userData) => {
   }
 }
 
-
 export const loginUser = async (email, password) => {
   try {
-    const response = await fetch(`${API_URL}/login`, {
+    const response = await fetch(`${API_ENDPOINT}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
@@ -41,13 +42,12 @@ export const loginUser = async (email, password) => {
   }
 }
 
-
 export const getProfile = async () => {
   const token = localStorage.getItem('token')
   if (!token) return { success: false, error: 'No token' }
 
   try {
-    const response = await fetch(`${API_URL}/profile`, {
+    const response = await fetch(`${API_ENDPOINT}/profile`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     const data = await response.json()
@@ -58,10 +58,9 @@ export const getProfile = async () => {
   }
 }
 
-
 export const forgotPassword = async (email) => {
   try {
-    const response = await fetch(`${API_URL}/forgot-password`, {
+    const response = await fetch(`${API_ENDPOINT}/forgot-password`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
@@ -74,10 +73,9 @@ export const forgotPassword = async (email) => {
   }
 }
 
-
 export const updatePassword = async (password, token) => {
   try {
-    const response = await fetch(`${API_URL}/reset-password`, {
+    const response = await fetch(`${API_ENDPOINT}/reset-password`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password, token })
@@ -89,7 +87,6 @@ export const updatePassword = async (password, token) => {
     return { success: false, error: error.error || 'Failed to update password' }
   }
 }
-
 
 export const logoutUser = () => {
   localStorage.removeItem('token')

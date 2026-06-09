@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Link,useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { loginUser, forgotPassword } from '../services/authService'
 
@@ -138,7 +138,7 @@ function Login() {
               </button>
             </p>
             <p className="login-footer">
-              Don't have an account? <a href="/register">Register</a>
+              Don't have an account? <Link to="/register">Register</Link>
             </p>
           </>
         ) : (
