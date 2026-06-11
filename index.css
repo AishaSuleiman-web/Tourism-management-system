@@ -1,0 +1,123 @@
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+      gap:30px;
+    }
+
+    .payment-section,
+    .summary-section{
+      background:white;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    h2{
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    .payment-methods{
+      display:flex;
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .method{
+      border:2px solid #ddd;
+      padding:12px 20px;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .method:hover{
+      border-color:#001E40;
+      color:#001E40;
+    }
+
+    .form-group{
+      margin-bottom:18px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:8px;
+      font-size:14px;
+      color:#555;
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:15px;
+    }
+
+    .row{
+      display:flex;
+      gap:15px;
+    }
+
+    .pay-btn{
+      width:100%;
+      background:#001E40;
+      color:white;
+      border:none;
+      padding:16px;
+      border-radius:10px;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:10px;
+      transition:0.3s;
+    }
+
+    .pay-btn:hover{
+      background:#001E40;
+    }
+
+    .booking-item{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:15px;
+      color:#555;
+    }
+
+    .total{
+      border-top:1px solid #ddd;
+      padding-top:15px;
+      margin-top:15px;
+      font-size:20px;
+      font-weight:bold;
+      color:#222;
+    }
+
+    .secure{
+      margin-top:20px;
+      font-size:13px;
+      color:green;
+    }
+
+    @media(max-width:900px){
+      .container{
+        grid-template-columns:1fr;
+      }
+    }
+
+  
